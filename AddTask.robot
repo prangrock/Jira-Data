@@ -7,17 +7,26 @@ Resource    keyword.robot
 *** Keywords ***
 Log in
     Open XLeads
+    Sleep    3s
     ${Islogined}=    Run Keyword And Return Status    Element Should Be Visible    ${home_section}[logined]
     IF    ${Islogined}
         Wait and Click    ${home_section}[log_microsoft]
+        Sleep    3s
+        ${IsAnother}=    Run Keyword And Return Status    Element Should Be Visible    //div[@id="otherTileText"]
+        IF    ${IsAnother}
+            Wait and Click    //div[@id="otherTileText"]
+        END
         Wait and Input    ${home_section}[username]    ${Username}
         Wait and Click   ${home_section}[next]
+        Sleep    3s
+        Wait and Click    //*[@id="idSIButton9"]    300s
         Sleep    0.5s
         Wait Until Element Is Visible    ${home_section}[search]    timeout=300s
         Sleep    0.5s
     ELSE
         RETURN 
     END
+    
 
 *** Test Cases ***
 GlobalSearch
@@ -31,7 +40,7 @@ GlobalSearch
     ${Keys_No}=    Getkeysbyorder    ${data}
     FOR    ${index}    ${Keys_No}    IN ENUMERATE    @{Keys_No}
         TRY
-            Wait and Input    ${home_section}[search]    ${Qa}
+            Wait and Input    //input[@data-test-id="search-dialog-input"]    ${Qa}
             Press Keys    ${home_section}[search]    ENTER
             ${pathtask}    Set Variable    //*[text()="${data}[${Keys_No}][TaskName]"]
             Wait Scroll and Click    ${pathtask}

@@ -30,6 +30,7 @@ Wait Click And Input
     Wait Until Element Is Visible    ${path}    ${time}
     Sleep    0.5s
     Click Element    ${path}
+    Sleep    2s
     Clear Element Text    ${path}
     Input Text    ${path}    ${text}
     Sleep    0.5s
