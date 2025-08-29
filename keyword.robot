@@ -13,17 +13,9 @@ PAGE ZOOM to 50
     sleep    0.5s
 
 Open XLeads
-    Open Browser    ${jirapath}    browser=firefox
+    Open Browser    ${jirapath}    browser=${browser}
     Maximize Browser Window
     PAGE ZOOM to 50
-    Sleep    0.5s
-    
-Log in
-    Open XLeads
-    Input Text    //*[@id="txtUserID"]    ${Username}
-    Input Text    //*[@id="txtPassword"]    ${Password}
-    Sleep    0.5s
-    Click Element    //button[@id="sub"]
     Sleep    0.5s
 
 Wait and Click
@@ -48,13 +40,32 @@ Wait and Input
     Input Text    ${path}    ${text}
     Sleep    0.5s
 
+Wait Scroll and Click
+    [Arguments]    ${path}    ${time}=5s    ${time2}=0.2s
+    Wait Until Element Is Visible    ${path}    ${time}
+    Sleep    ${time2}
+    Scroll Element Into View    ${path}
+    Sleep    ${time2}
+    Click Element    ${path}
+    Sleep    ${time2}
+
+Wait Scroll and Input
+    [Arguments]    ${path}    ${text}    ${time}=5s    ${time2}=0.2s
+    Wait Until Element Is Visible    ${path}    ${time}
+    Sleep    ${time2}
+    Scroll Element Into View    ${path}
+    Sleep    ${time2}
+    Clear Element Text    ${path}
+    Input Text    ${path}    ${text}
+    Sleep    ${time2}
+
 Get All Path
     ${paths}=   getpathsectionbyrow    ${excelname}    ${pathsheet}
     Set Suite Variable    ${paths}
 
 Get All Data
-    ${ca_status}=    Getdatabycol    ${excelname}    ${CAsheet}
-    Set Suite Variable    ${ca_status}
+    ${data}=    Getdatabycol    ${excelname}    ${CAsheet}
+    Set Suite Variable    ${data}
 
 Select New Window
     [Arguments]    @{oldwindow}

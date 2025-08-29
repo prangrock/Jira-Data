@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.12.1 on win32)" generated="20250829 15:04:38.668" rpa="false" schemaversion="3">
+<suite id="s1" name="AddTask" source="C:\Users\t001397\OneDrive - The Siam Commercial Bank PCL\NLeads\Jira\Jira-Data\AddTask.robot">
+<test id="s1-t1" name="GlobalSearch" line="58">
+<kw name="Get All Path" library="keyword">
+<kw name="Getpathsectionbyrow" library="handledata">
+<var>${paths}</var>
+<arg>${excelname}</arg>
+<arg>${pathsheet}</arg>
+<msg timestamp="20250829 15:04:39.942" level="INFO">${paths} = {'Home': {'logined': "//*[(text()='Log in to continue')]", 'log_microsoft': '//*[@id="microsoft-auth-button"]', 'next': '//*[@id="idSIButton9"]', 'username': '//*[@id="i0116"]', 'search': '//div[@role...</msg>
+<status status="PASS" starttime="20250829 15:04:39.887" endtime="20250829 15:04:39.942"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${paths}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20250829 15:04:39.942" level="INFO">${paths} = {'Home': {'logined': "//*[(text()='Log in to continue')]", 'log_microsoft': '//*[@id="microsoft-auth-button"]', 'next': '//*[@id="idSIButton9"]', 'username': '//*[@id="i0116"]', 'search': '//div[@role...</msg>
+<status status="PASS" starttime="20250829 15:04:39.942" endtime="20250829 15:04:39.942"/>
+</kw>
+<status status="PASS" starttime="20250829 15:04:39.887" endtime="20250829 15:04:39.942"/>
+</kw>
+<kw name="Get All Data" library="keyword">
+<kw name="Getdatabycol" library="handledata">
+<var>${No}</var>
+<arg>${excelname}</arg>
+<arg>${CAsheet}</arg>
+<msg timestamp="20250829 15:04:39.963" level="INFO">${No} = {'1': {'No': '1', 'TaskName': 'TEST'}}</msg>
+<status status="PASS" starttime="20250829 15:04:39.942" endtime="20250829 15:04:39.963"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${No}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20250829 15:04:39.963" level="INFO">${No} = {'1': {'No': '1', 'TaskName': 'TEST'}}</msg>
+<status status="PASS" starttime="20250829 15:04:39.963" endtime="20250829 15:04:39.963"/>
+</kw>
+<status status="PASS" starttime="20250829 15:04:39.942" endtime="20250829 15:04:39.963"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${home_section}</var>
+<arg>${paths}</arg>
+<arg>Home</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20250829 15:04:39.963" level="INFO">${home_section} = {'logined': "//*[(text()='Log in to continue')]", 'log_microsoft': '//*[@id="microsoft-auth-button"]', 'next': '//*[@id="idSIButton9"]', 'username': '//*[@id="i0116"]', 'search': '//div[@role ="search...</msg>
+<status status="PASS" starttime="20250829 15:04:39.963" endtime="20250829 15:04:39.963"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${home_section}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20250829 15:04:39.963" level="INFO">${home_section} = {'logined': "//*[(text()='Log in to continue')]", 'log_microsoft': '//*[@id="microsoft-auth-button"]', 'next': '//*[@id="idSIButton9"]', 'username': '//*[@id="i0116"]', 'search': '//div[@role ="search...</msg>
+<status status="PASS" starttime="20250829 15:04:39.963" endtime="20250829 15:04:39.963"/>
+</kw>
+<kw name="Getkeysbyorder" library="handledata">
+<var>${Keys_No}</var>
+<arg>${No}</arg>
+<msg timestamp="20250829 15:04:39.963" level="INFO">${Keys_No} = ['1']</msg>
+<status status="PASS" starttime="20250829 15:04:39.963" endtime="20250829 15:04:39.963"/>
+</kw>
+<for flavor="IN ENUMERATE">
+<var>${index}</var>
+<var>${Keys_No}</var>
+<value>@{Keys_No}</value>
+<iter>
+<var name="${index}">0</var>
+<var name="${Keys_No}">1</var>
+<try>
+<branch type="TRY">
+<kw name="Create List" library="BuiltIn">
+<var>${result}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20250829 15:04:39.963" level="INFO">${result} = []</msg>
+<status status="PASS" starttime="20250829 15:04:39.963" endtime="20250829 15:04:39.963"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${result}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20250829 15:04:39.963" level="INFO">${result} = []</msg>
+<status status="PASS" starttime="20250829 15:04:39.963" endtime="20250829 15:04:39.963"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${pathtask}</var>
+<arg>//*[text()="${No}[${Keys_No}][TaskName]"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20250829 15:04:39.963" level="INFO">${pathtask} = //*[text()="TEST"]</msg>
+<status status="PASS" starttime="20250829 15:04:39.963" endtime="20250829 15:04:39.963"/>
+</kw>
+<status status="PASS" starttime="20250829 15:04:39.963" endtime="20250829 15:04:39.963"/>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${pathtask}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20250829 15:04:39.963" endtime="20250829 15:04:39.963"/>
+</kw>
+<status status="NOT RUN" starttime="20250829 15:04:39.963" endtime="20250829 15:04:39.963"/>
+</branch>
+<status status="PASS" starttime="20250829 15:04:39.963" endtime="20250829 15:04:39.963"/>
+</try>
+<status status="PASS" starttime="20250829 15:04:39.963" endtime="20250829 15:04:39.963"/>
+</iter>
+<status status="PASS" starttime="20250829 15:04:39.963" endtime="20250829 15:04:39.963"/>
+</for>
+<status status="PASS" starttime="20250829 15:04:39.887" endtime="20250829 15:04:39.963"/>
+</test>
+<status status="PASS" starttime="20250829 15:04:38.668" endtime="20250829 15:04:39.963"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="AddTask">AddTask</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

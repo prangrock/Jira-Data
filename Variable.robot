@@ -7,5 +7,7 @@ ${Password}    Jun2025!
 ${excelname}    Jira_data.xlsx
 ${pathsheet}    Path
 ${CAsheet}    Data
+${browser}    Edge
+${Qa}    QA-456210
 
 ${excelFile}   ../Xleads/Jira_data.xlsx
