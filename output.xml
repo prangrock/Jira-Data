@@ -1,115 +1,369 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.2 (Python 3.12.1 on win32)" generated="20250829 15:04:38.668" rpa="false" schemaversion="3">
-<suite id="s1" name="AddTask" source="C:\Users\t001397\OneDrive - The Siam Commercial Bank PCL\NLeads\Jira\Jira-Data\AddTask.robot">
-<test id="s1-t1" name="GlobalSearch" line="58">
+<robot generator="Robot 6.0.2 (Python 3.12.1 on win32)" generated="20250829 17:34:25.824" rpa="false" schemaversion="3">
+<suite id="s1" name="AddTask" source="C:\Users\t001398\Documents\Jira-Data-main\Jira-Data\AddTask.robot">
+<test id="s1-t1" name="GlobalSearch" line="59">
 <kw name="Get All Path" library="keyword">
 <kw name="Getpathsectionbyrow" library="handledata">
 <var>${paths}</var>
 <arg>${excelname}</arg>
 <arg>${pathsheet}</arg>
-<msg timestamp="20250829 15:04:39.942" level="INFO">${paths} = {'Home': {'logined': "//*[(text()='Log in to continue')]", 'log_microsoft': '//*[@id="microsoft-auth-button"]', 'next': '//*[@id="idSIButton9"]', 'username': '//*[@id="i0116"]', 'search': '//div[@role...</msg>
-<status status="PASS" starttime="20250829 15:04:39.887" endtime="20250829 15:04:39.942"/>
+<msg timestamp="20250829 17:34:27.121" level="INFO">${paths} = {'Home': {'logined': "//*[(text()='Log in to continue')]", 'log_microsoft': '//*[@id="microsoft-auth-button"]', 'next': '//*[@id="idSIButton9"]', 'username': '//*[@id="i0116"]', 'search': '//div[@role...</msg>
+<status status="PASS" starttime="20250829 17:34:27.090" endtime="20250829 17:34:27.121"/>
 </kw>
 <kw name="Set Suite Variable" library="BuiltIn">
 <arg>${paths}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<msg timestamp="20250829 15:04:39.942" level="INFO">${paths} = {'Home': {'logined': "//*[(text()='Log in to continue')]", 'log_microsoft': '//*[@id="microsoft-auth-button"]', 'next': '//*[@id="idSIButton9"]', 'username': '//*[@id="i0116"]', 'search': '//div[@role...</msg>
-<status status="PASS" starttime="20250829 15:04:39.942" endtime="20250829 15:04:39.942"/>
+<msg timestamp="20250829 17:34:27.121" level="INFO">${paths} = {'Home': {'logined': "//*[(text()='Log in to continue')]", 'log_microsoft': '//*[@id="microsoft-auth-button"]', 'next': '//*[@id="idSIButton9"]', 'username': '//*[@id="i0116"]', 'search': '//div[@role...</msg>
+<status status="PASS" starttime="20250829 17:34:27.121" endtime="20250829 17:34:27.121"/>
 </kw>
-<status status="PASS" starttime="20250829 15:04:39.887" endtime="20250829 15:04:39.942"/>
+<status status="PASS" starttime="20250829 17:34:27.090" endtime="20250829 17:34:27.121"/>
 </kw>
 <kw name="Get All Data" library="keyword">
 <kw name="Getdatabycol" library="handledata">
-<var>${No}</var>
+<var>${data}</var>
 <arg>${excelname}</arg>
 <arg>${CAsheet}</arg>
-<msg timestamp="20250829 15:04:39.963" level="INFO">${No} = {'1': {'No': '1', 'TaskName': 'TEST'}}</msg>
-<status status="PASS" starttime="20250829 15:04:39.942" endtime="20250829 15:04:39.963"/>
+<msg timestamp="20250829 17:34:27.122" level="INFO">${data} = {'1': {'No': '1', 'TaskName': 'SR-41923 - [NLEADS] - Execute SIT', 'SubTaskName': 'TEST', 'Assignee': 'NATTAWAT LUMTANSAWAN', 'Reporter': 'CHURATIP CHUNTRARUG', 'StartDate': '8/29/2025', 'EndDate': '8...</msg>
+<status status="PASS" starttime="20250829 17:34:27.122" endtime="20250829 17:34:27.122"/>
 </kw>
 <kw name="Set Suite Variable" library="BuiltIn">
-<arg>${No}</arg>
+<arg>${data}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<msg timestamp="20250829 15:04:39.963" level="INFO">${No} = {'1': {'No': '1', 'TaskName': 'TEST'}}</msg>
-<status status="PASS" starttime="20250829 15:04:39.963" endtime="20250829 15:04:39.963"/>
+<msg timestamp="20250829 17:34:27.122" level="INFO">${data} = {'1': {'No': '1', 'TaskName': 'SR-41923 - [NLEADS] - Execute SIT', 'SubTaskName': 'TEST', 'Assignee': 'NATTAWAT LUMTANSAWAN', 'Reporter': 'CHURATIP CHUNTRARUG', 'StartDate': '8/29/2025', 'EndDate': '8...</msg>
+<status status="PASS" starttime="20250829 17:34:27.122" endtime="20250829 17:34:27.122"/>
 </kw>
-<status status="PASS" starttime="20250829 15:04:39.942" endtime="20250829 15:04:39.963"/>
+<status status="PASS" starttime="20250829 17:34:27.122" endtime="20250829 17:34:27.122"/>
 </kw>
 <kw name="Get From Dictionary" library="Collections">
 <var>${home_section}</var>
 <arg>${paths}</arg>
 <arg>Home</arg>
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<msg timestamp="20250829 15:04:39.963" level="INFO">${home_section} = {'logined': "//*[(text()='Log in to continue')]", 'log_microsoft': '//*[@id="microsoft-auth-button"]', 'next': '//*[@id="idSIButton9"]', 'username': '//*[@id="i0116"]', 'search': '//div[@role ="search...</msg>
-<status status="PASS" starttime="20250829 15:04:39.963" endtime="20250829 15:04:39.963"/>
+<msg timestamp="20250829 17:34:27.131" level="INFO">${home_section} = {'logined': "//*[(text()='Log in to continue')]", 'log_microsoft': '//*[@id="microsoft-auth-button"]', 'next': '//*[@id="idSIButton9"]', 'username': '//*[@id="i0116"]', 'search': '//div[@role ="search...</msg>
+<status status="PASS" starttime="20250829 17:34:27.131" endtime="20250829 17:34:27.131"/>
 </kw>
 <kw name="Set Suite Variable" library="BuiltIn">
 <arg>${home_section}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<msg timestamp="20250829 15:04:39.963" level="INFO">${home_section} = {'logined': "//*[(text()='Log in to continue')]", 'log_microsoft': '//*[@id="microsoft-auth-button"]', 'next': '//*[@id="idSIButton9"]', 'username': '//*[@id="i0116"]', 'search': '//div[@role ="search...</msg>
-<status status="PASS" starttime="20250829 15:04:39.963" endtime="20250829 15:04:39.963"/>
+<msg timestamp="20250829 17:34:27.131" level="INFO">${home_section} = {'logined': "//*[(text()='Log in to continue')]", 'log_microsoft': '//*[@id="microsoft-auth-button"]', 'next': '//*[@id="idSIButton9"]', 'username': '//*[@id="i0116"]', 'search': '//div[@role ="search...</msg>
+<status status="PASS" starttime="20250829 17:34:27.131" endtime="20250829 17:34:27.131"/>
+</kw>
+<kw name="Log in">
+<kw name="Open XLeads" library="keyword">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${jirapath}</arg>
+<arg>browser=${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20250829 17:34:27.132" level="INFO">Opening browser 'Edge' to base url 'https://id.atlassian.com/login?continue=https%3A%2F%2Fid.atlassian.com%2Fjoin%2Fuser-access%3Fresource%3Dari%253Acloud%253Ajira%253A%253Asite%252Fd134ff73-ae01-4896-99d8-37238f888144%26continue%3Dhttps%253A%252F%252Fscbjira.atlassian.net%252Fbrowse%252FQA-456210&amp;application=jira'.</msg>
+<status status="PASS" starttime="20250829 17:34:27.132" endtime="20250829 17:34:29.504"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20250829 17:34:29.504" endtime="20250829 17:34:29.543"/>
+</kw>
+<kw name="PAGE ZOOM to 50" library="keyword">
+<kw name="Zoom Out" library="zoomout">
+<status status="PASS" starttime="20250829 17:34:29.543" endtime="20250829 17:34:30.250"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20250829 17:34:30.750" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20250829 17:34:30.250" endtime="20250829 17:34:30.750"/>
+</kw>
+<status status="PASS" starttime="20250829 17:34:29.543" endtime="20250829 17:34:30.750"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20250829 17:34:31.251" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20250829 17:34:30.751" endtime="20250829 17:34:31.251"/>
+</kw>
+<status status="PASS" starttime="20250829 17:34:27.132" endtime="20250829 17:34:31.251"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Islogined}</var>
+<arg>Element Should Be Visible</arg>
+<arg>${home_section}[logined]</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${home_section}[logined]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20250829 17:34:31.290" level="INFO">Element '//*[(text()='Log in to continue')]' is displayed.</msg>
+<status status="PASS" starttime="20250829 17:34:31.251" endtime="20250829 17:34:31.290"/>
+</kw>
+<msg timestamp="20250829 17:34:31.290" level="INFO">${Islogined} = True</msg>
+<status status="PASS" starttime="20250829 17:34:31.251" endtime="20250829 17:34:31.290"/>
+</kw>
+<if>
+<branch type="IF" condition="${Islogined}">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Islogined}</var>
+<arg>Element Should Be Visible</arg>
+<arg>${home_section}[logined]</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${home_section}[logined]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20250829 17:34:31.303" level="INFO">Element '//*[(text()='Log in to continue')]' is displayed.</msg>
+<status status="PASS" starttime="20250829 17:34:31.290" endtime="20250829 17:34:31.303"/>
+</kw>
+<msg timestamp="20250829 17:34:31.303" level="INFO">${Islogined} = True</msg>
+<status status="PASS" starttime="20250829 17:34:31.290" endtime="20250829 17:34:31.303"/>
+</kw>
+<kw name="Wait and Click" library="keyword">
+<arg>${home_section}[log_microsoft]</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${path}</arg>
+<arg>${time}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20250829 17:34:31.304" endtime="20250829 17:34:31.315"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20250829 17:34:31.815" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20250829 17:34:31.315" endtime="20250829 17:34:31.815"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${path}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20250829 17:34:31.815" level="INFO">Clicking element '//*[@id="microsoft-auth-button"]'.</msg>
+<status status="PASS" starttime="20250829 17:34:31.815" endtime="20250829 17:34:33.717"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20250829 17:34:34.218" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20250829 17:34:33.718" endtime="20250829 17:34:34.218"/>
+</kw>
+<status status="PASS" starttime="20250829 17:34:31.303" endtime="20250829 17:34:34.218"/>
+</kw>
+<kw name="Wait and Input" library="keyword">
+<arg>${home_section}[username]</arg>
+<arg>${Username}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${path}</arg>
+<arg>${time}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20250829 17:34:39.468" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20250829 17:34:39.468" level="FAIL">Element '//*[@id="i0116"]' not visible after 5 seconds.</msg>
+<status status="FAIL" starttime="20250829 17:34:34.219" endtime="20250829 17:34:39.470"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20250829 17:34:39.470" endtime="20250829 17:34:39.470"/>
+</kw>
+<kw name="Clear Element Text" library="SeleniumLibrary">
+<arg>${path}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20250829 17:34:39.470" endtime="20250829 17:34:39.470"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${path}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20250829 17:34:39.470" endtime="20250829 17:34:39.470"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20250829 17:34:39.470" endtime="20250829 17:34:39.470"/>
+</kw>
+<status status="FAIL" starttime="20250829 17:34:34.218" endtime="20250829 17:34:39.470"/>
+</kw>
+<kw name="Wait and Click" library="keyword">
+<arg>${home_section}[next]</arg>
+<status status="NOT RUN" starttime="20250829 17:34:39.470" endtime="20250829 17:34:39.470"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20250829 17:34:39.470" endtime="20250829 17:34:39.470"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${home_section}[search]</arg>
+<arg>timeout=300s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20250829 17:34:39.470" endtime="20250829 17:34:39.470"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20250829 17:34:39.470" endtime="20250829 17:34:39.470"/>
+</kw>
+<status status="FAIL" starttime="20250829 17:34:31.290" endtime="20250829 17:34:39.470"/>
+</branch>
+<branch type="ELSE">
+<return>
+<status status="NOT RUN" starttime="20250829 17:34:39.470" endtime="20250829 17:34:39.470"/>
+</return>
+<status status="NOT RUN" starttime="20250829 17:34:39.470" endtime="20250829 17:34:39.470"/>
+</branch>
+<status status="FAIL" starttime="20250829 17:34:31.290" endtime="20250829 17:34:39.470"/>
+</if>
+<status status="FAIL" starttime="20250829 17:34:27.132" endtime="20250829 17:34:39.470"/>
 </kw>
 <kw name="Getkeysbyorder" library="handledata">
 <var>${Keys_No}</var>
-<arg>${No}</arg>
-<msg timestamp="20250829 15:04:39.963" level="INFO">${Keys_No} = ['1']</msg>
-<status status="PASS" starttime="20250829 15:04:39.963" endtime="20250829 15:04:39.963"/>
+<arg>${data}</arg>
+<status status="NOT RUN" starttime="20250829 17:34:39.471" endtime="20250829 17:34:39.471"/>
 </kw>
 <for flavor="IN ENUMERATE">
 <var>${index}</var>
 <var>${Keys_No}</var>
 <value>@{Keys_No}</value>
 <iter>
-<var name="${index}">0</var>
-<var name="${Keys_No}">1</var>
+<var name="${index}"/>
+<var name="${Keys_No}"/>
 <try>
 <branch type="TRY">
-<kw name="Create List" library="BuiltIn">
-<var>${result}</var>
-<doc>Returns a list containing given items.</doc>
-<msg timestamp="20250829 15:04:39.963" level="INFO">${result} = []</msg>
-<status status="PASS" starttime="20250829 15:04:39.963" endtime="20250829 15:04:39.963"/>
+<kw name="Wait and Input" library="keyword">
+<arg>${home_section}[search]</arg>
+<arg>${Qa}</arg>
+<status status="NOT RUN" starttime="20250829 17:34:39.471" endtime="20250829 17:34:39.471"/>
 </kw>
-<kw name="Set Global Variable" library="BuiltIn">
-<arg>${result}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20250829 15:04:39.963" level="INFO">${result} = []</msg>
-<status status="PASS" starttime="20250829 15:04:39.963" endtime="20250829 15:04:39.963"/>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${home_section}[search]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20250829 17:34:39.471" endtime="20250829 17:34:39.471"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${pathtask}</var>
-<arg>//*[text()="${No}[${Keys_No}][TaskName]"]</arg>
+<arg>//*[text()="${data}[${Keys_No}][TaskName]"]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20250829 15:04:39.963" level="INFO">${pathtask} = //*[text()="TEST"]</msg>
-<status status="PASS" starttime="20250829 15:04:39.963" endtime="20250829 15:04:39.963"/>
+<status status="NOT RUN" starttime="20250829 17:34:39.471" endtime="20250829 17:34:39.471"/>
 </kw>
-<status status="PASS" starttime="20250829 15:04:39.963" endtime="20250829 15:04:39.963"/>
+<kw name="Wait Scroll and Click" library="keyword">
+<arg>${pathtask}</arg>
+<status status="NOT RUN" starttime="20250829 17:34:39.471" endtime="20250829 17:34:39.472"/>
+</kw>
+<kw name="Wait Scroll and Click" library="keyword">
+<arg>${home_section}[addsubtask]</arg>
+<status status="NOT RUN" starttime="20250829 17:34:39.472" endtime="20250829 17:34:39.472"/>
+</kw>
+<kw name="Wait Scroll and Input" library="keyword">
+<arg>${home_section}[namesubtask]</arg>
+<arg>${data}[${Keys_No}][SubTaskName]</arg>
+<status status="NOT RUN" starttime="20250829 17:34:39.472" endtime="20250829 17:34:39.472"/>
+</kw>
+<kw name="Wait and Click" library="keyword">
+<arg>${home_section}[create]</arg>
+<status status="NOT RUN" starttime="20250829 17:34:39.472" endtime="20250829 17:34:39.472"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${pathtask}</var>
+<arg>//*[text()="${data}[${Keys_No}][SubTaskName]"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20250829 17:34:39.472" endtime="20250829 17:34:39.472"/>
+</kw>
+<kw name="Wait Scroll and Click" library="keyword">
+<arg>${pathtask}</arg>
+<status status="NOT RUN" starttime="20250829 17:34:39.472" endtime="20250829 17:34:39.472"/>
+</kw>
+<kw name="Wait Scroll and Input" library="keyword">
+<arg>${home_section}[Assignee]</arg>
+<arg>${data}[${Keys_No}][Assignee]</arg>
+<status status="NOT RUN" starttime="20250829 17:34:39.472" endtime="20250829 17:34:39.472"/>
+</kw>
+<kw name="Wait Scroll and Input" library="keyword">
+<arg>${home_section}[Reporter]</arg>
+<arg>${data}[${Keys_No}][Reporter]</arg>
+<status status="NOT RUN" starttime="20250829 17:34:39.472" endtime="20250829 17:34:39.472"/>
+</kw>
+<kw name="Wait Scroll and Click" library="keyword">
+<arg>${home_section}[StartDate]</arg>
+<status status="NOT RUN" starttime="20250829 17:34:39.472" endtime="20250829 17:34:39.472"/>
+</kw>
+<kw name="Wait Scroll and Click" library="keyword">
+<arg>${home_section}[EndDate]</arg>
+<status status="NOT RUN" starttime="20250829 17:34:39.472" endtime="20250829 17:34:39.472"/>
+</kw>
+<kw name="Wait Scroll and Click" library="keyword">
+<arg>${home_section}[ActualStartDate]</arg>
+<status status="NOT RUN" starttime="20250829 17:34:39.472" endtime="20250829 17:34:39.472"/>
+</kw>
+<kw name="Wait Scroll and Click" library="keyword">
+<arg>${home_section}[ActualEndDate]</arg>
+<status status="NOT RUN" starttime="20250829 17:34:39.472" endtime="20250829 17:34:39.472"/>
+</kw>
+<kw name="Wait Click And Input" library="keyword">
+<arg>${home_section}[OriginalEstimate]</arg>
+<arg>${data}[${Keys_No}][OriginalEstimate]</arg>
+<status status="NOT RUN" starttime="20250829 17:34:39.472" endtime="20250829 17:34:39.472"/>
+</kw>
+<kw name="Wait Scroll and Click" library="keyword">
+<arg>${home_section}[TimeTracking]</arg>
+<status status="NOT RUN" starttime="20250829 17:34:39.472" endtime="20250829 17:34:39.472"/>
+</kw>
+<kw name="Wait Scroll and Input" library="keyword">
+<arg>${home_section}[TimeSpent]</arg>
+<arg>${data}[${Keys_No}][TimeSpent]</arg>
+<status status="NOT RUN" starttime="20250829 17:34:39.472" endtime="20250829 17:34:39.472"/>
+</kw>
+<kw name="Wait Click And Input" library="keyword">
+<arg>${home_section}[starttime]</arg>
+<arg>${data}[${Keys_No}][starttime]</arg>
+<status status="NOT RUN" starttime="20250829 17:34:39.473" endtime="20250829 17:34:39.473"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${home_section}[starttime]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20250829 17:34:39.473" endtime="20250829 17:34:39.473"/>
+</kw>
+<kw name="Wait and Click" library="keyword">
+<arg>${home_section}[save]</arg>
+<status status="NOT RUN" starttime="20250829 17:34:39.473" endtime="20250829 17:34:39.473"/>
+</kw>
+<kw name="Wait Click And Input" library="keyword">
+<arg>${home_section}[Addcomment]</arg>
+<arg>${data}[${Keys_No}][Addcomment]</arg>
+<status status="NOT RUN" starttime="20250829 17:34:39.473" endtime="20250829 17:34:39.473"/>
+</kw>
+<kw name="Wait and Click" library="keyword">
+<arg>${home_section}[savecomment]</arg>
+<status status="NOT RUN" starttime="20250829 17:34:39.473" endtime="20250829 17:34:39.473"/>
+</kw>
+<kw name="Wait Click And Input" library="keyword">
+<arg>${home_section}[Description]</arg>
+<arg>${data}[${Keys_No}][Description]</arg>
+<status status="NOT RUN" starttime="20250829 17:34:39.473" endtime="20250829 17:34:39.473"/>
+</kw>
+<kw name="Wait and Click" library="keyword">
+<arg>${home_section}[savedescription]</arg>
+<status status="NOT RUN" starttime="20250829 17:34:39.473" endtime="20250829 17:34:39.473"/>
+</kw>
+<status status="NOT RUN" starttime="20250829 17:34:39.471" endtime="20250829 17:34:39.473"/>
 </branch>
 <branch type="EXCEPT">
 <kw name="Log To Console" library="BuiltIn">
-<arg>${pathtask}</arg>
+<arg>Global Search Fail CA : ${Keys_No}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" starttime="20250829 15:04:39.963" endtime="20250829 15:04:39.963"/>
+<status status="NOT RUN" starttime="20250829 17:34:39.473" endtime="20250829 17:34:39.473"/>
 </kw>
-<status status="NOT RUN" starttime="20250829 15:04:39.963" endtime="20250829 15:04:39.963"/>
+<status status="NOT RUN" starttime="20250829 17:34:39.473" endtime="20250829 17:34:39.473"/>
 </branch>
-<status status="PASS" starttime="20250829 15:04:39.963" endtime="20250829 15:04:39.963"/>
+<status status="NOT RUN" starttime="20250829 17:34:39.471" endtime="20250829 17:34:39.473"/>
 </try>
-<status status="PASS" starttime="20250829 15:04:39.963" endtime="20250829 15:04:39.963"/>
+<status status="NOT RUN" starttime="20250829 17:34:39.471" endtime="20250829 17:34:39.473"/>
 </iter>
-<status status="PASS" starttime="20250829 15:04:39.963" endtime="20250829 15:04:39.963"/>
+<status status="NOT RUN" starttime="20250829 17:34:39.471" endtime="20250829 17:34:39.473"/>
 </for>
-<status status="PASS" starttime="20250829 15:04:39.887" endtime="20250829 15:04:39.963"/>
+<status status="FAIL" starttime="20250829 17:34:27.090" endtime="20250829 17:34:39.473">Element '//*[@id="i0116"]' not visible after 5 seconds.</status>
 </test>
-<status status="PASS" starttime="20250829 15:04:38.668" endtime="20250829 15:04:39.963"/>
+<status status="FAIL" starttime="20250829 17:34:25.826" endtime="20250829 17:34:39.474"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="AddTask">AddTask</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="AddTask">AddTask</stat>
 </suite>
 </statistics>
 <errors>

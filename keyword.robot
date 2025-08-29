@@ -25,6 +25,15 @@ Wait and Click
     Click Element    ${path}
     Sleep    0.5s
 
+Wait Click And Input
+    [Arguments]    ${path}    ${text}    ${time}=5s
+    Wait Until Element Is Visible    ${path}    ${time}
+    Sleep    0.5s
+    Click Element    ${path}
+    Clear Element Text    ${path}
+    Input Text    ${path}    ${text}
+    Sleep    0.5s
+
 Wait and Select Drop Down
     [Arguments]    ${path}    ${role}    ${time}=5s
     Wait Until Element Is Visible    ${path}    ${time}
