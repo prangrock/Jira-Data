@@ -1,531 +1,2531 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.2 (Python 3.12.1 on win32)" generated="20250829 19:31:59.217" rpa="false" schemaversion="3">
-<suite id="s1" name="AddTask" source="C:\Users\t001397\OneDrive - The Siam Commercial Bank PCL\NLeads\Jira\Jira-Data\AddTask.robot">
-<test id="s1-t1" name="GlobalSearch" line="32">
-<kw name="Get All Path" library="keyword">
-<kw name="Getpathsectionbyrow" library="handledata">
-<var>${paths}</var>
-<arg>${excelname}</arg>
-<arg>${pathsheet}</arg>
-<msg timestamp="20250829 19:32:00.464" level="INFO">${paths} = {'Home': {'logined': "//*[(text()='Log in to continue')]", 'log_microsoft': '//*[@id="microsoft-auth-button"]', 'next': '//*[@id="idSIButton9"]', 'username': '//*[@id="i0116"]', 'search': '//div[@role...</msg>
-<status status="PASS" starttime="20250829 19:32:00.436" endtime="20250829 19:32:00.464"/>
+<robot generator="Robot 7.3.2 (Python 3.11.9 on win32)" generated="2025-09-01T00:07:26.350837" rpa="false" schemaversion="5">
+<suite id="s1" name="AddTask" source="C:\kmutt\me\gonnaknow\project\jira\Jira-Data\AddTask.robot">
+<kw name="Log in" type="SETUP">
+<kw name="Open Browsers With Same Profile" owner="play">
+<kw name="Normalize Path" owner="OperatingSystem">
+<msg time="2025-09-01T00:07:27.120765" level="INFO">${profiledir} = C:\kmutt\me\gonnaknow\project\jira\Jira-Data\browser-state</msg>
+<var>${profiledir}</var>
+<arg>C:\\kmutt\\me\\gonnaknow\\project\\jira\\Jira-Data/browser-state</arg>
+<doc>Normalizes the given path.</doc>
+<status status="PASS" start="2025-09-01T00:07:27.120765" elapsed="0.000000"/>
 </kw>
-<kw name="Set Suite Variable" library="BuiltIn">
-<arg>${paths}</arg>
-<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<msg timestamp="20250829 19:32:00.464" level="INFO">${paths} = {'Home': {'logined': "//*[(text()='Log in to continue')]", 'log_microsoft': '//*[@id="microsoft-auth-button"]', 'next': '//*[@id="idSIButton9"]', 'username': '//*[@id="i0116"]', 'search': '//div[@role...</msg>
-<status status="PASS" starttime="20250829 19:32:00.464" endtime="20250829 19:32:00.464"/>
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2025-09-01T00:07:27.121759" level="INFO" html="true">Directory '&lt;a href="file://C:\kmutt\me\gonnaknow\project\jira\Jira-Data\browser-state"&gt;C:\kmutt\me\gonnaknow\project\jira\Jira-Data\browser-state&lt;/a&gt;' already exists.</msg>
+<arg>${profiledir}</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2025-09-01T00:07:27.121759" elapsed="0.000000"/>
 </kw>
-<status status="PASS" starttime="20250829 19:32:00.436" endtime="20250829 19:32:00.464"/>
+<kw name="New Persistent Context" owner="Browser">
+<msg time="2025-09-01T00:07:27.124773" level="INFO">{
+  "userDataDir": "C:\\kmutt\\me\\gonnaknow\\project\\jira\\Jira-Data\\browser-state",
+  "browser": "chromium",
+  "headless": false,
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "channel": "msedge",
+  "chromiumSandbox": false,
+  "devtools": false,
+  "forcedColors": "none",
+  "handleSIGHUP": true,
+  "handleSIGINT": true,
+  "handleSIGTERM": true,
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "slowMo": 0.0,
+  "timeout": 30000.0,
+  "viewport": null,
+  "tracesDir": "C:\\kmutt\\me\\gonnaknow\\project\\jira\\Jira-Data\\browser\\traces\\temp\\af4a17f2-7a1a-4aed-9491-ee963a982466"
+}</msg>
+<msg time="2025-09-01T00:07:27.150278" level="INFO">Starting Browser process C:\Users\mapra\AppData\Local\Programs\Python\Python311\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:60406</msg>
+<msg time="2025-09-01T00:07:28.772877" level="INFO">Successfully created context. </msg>
+<msg time="2025-09-01T00:07:28.772877" level="INFO">{'userDataDir': 'C:\\kmutt\\me\\gonnaknow\\project\\jira\\Jira-Data\\browser-state', 'browser': 'chromium', 'headless': False, 'acceptDownloads': True, 'bypassCSP': False, 'channel': 'msedge', 'chromiumSandbox': False, 'devtools': False, 'forcedColors': 'none', 'handleSIGHUP': True, 'handleSIGINT': True, 'handleSIGTERM': True, 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'slowMo': 0, 'timeout': 30000, 'viewport': None, 'tracesDir': 'C:\\kmutt\\me\\gonnaknow\\project\\jira\\Jira-Data\\browser\\traces\\temp\\af4a17f2-7a1a-4aed-9491-ee963a982466'}</msg>
+<arg>${profiledir}</arg>
+<arg>browser=chromium</arg>
+<arg>channel=${browser}</arg>
+<arg>headless=${False}</arg>
+<arg>viewport=${None}</arg>
+<doc>Open a new
+[https://playwright.dev/docs/api/class-browsertype#browser-type-launch-persistent-context | persistent context].</doc>
+<status status="PASS" start="2025-09-01T00:07:27.121759" elapsed="1.651118"/>
 </kw>
-<kw name="Get All Data" library="keyword">
-<kw name="Getdatabycol" library="handledata">
-<var>${data}</var>
-<arg>${excelname}</arg>
-<arg>${CAsheet}</arg>
-<msg timestamp="20250829 19:32:00.482" level="INFO">${data} = {'1': {'No': '1', 'TaskName': 'SR-41923 - [NLEADS] - Execute SIT', 'SubTaskName': 'TEST', 'Assignee': 'NATTAWAT LUMTANSAWAN', 'Reporter': 'CHURATIP CHUNTRARUG', 'StartDate': '8/29/2025', 'EndDate': '8...</msg>
-<status status="PASS" starttime="20250829 19:32:00.464" endtime="20250829 19:32:00.482"/>
+<kw name="New Page" owner="Browser">
+<msg time="2025-09-01T00:07:30.471038" level="INFO">Successfully initialized new page object and opened url: https://chomchanokmaolee.atlassian.net/jira/software/projects/DM/list</msg>
+<arg>${url}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2025-09-01T00:07:28.773871" elapsed="1.698178"/>
 </kw>
-<kw name="Set Suite Variable" library="BuiltIn">
-<arg>${data}</arg>
-<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<msg timestamp="20250829 19:32:00.482" level="INFO">${data} = {'1': {'No': '1', 'TaskName': 'SR-41923 - [NLEADS] - Execute SIT', 'SubTaskName': 'TEST', 'Assignee': 'NATTAWAT LUMTANSAWAN', 'Reporter': 'CHURATIP CHUNTRARUG', 'StartDate': '8/29/2025', 'EndDate': '8...</msg>
-<status status="PASS" starttime="20250829 19:32:00.482" endtime="20250829 19:32:00.482"/>
-</kw>
-<status status="PASS" starttime="20250829 19:32:00.464" endtime="20250829 19:32:00.482"/>
-</kw>
-<kw name="Get From Dictionary" library="Collections">
-<var>${home_section}</var>
-<arg>${paths}</arg>
-<arg>Home</arg>
-<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<msg timestamp="20250829 19:32:00.482" level="INFO">${home_section} = {'logined': "//*[(text()='Log in to continue')]", 'log_microsoft': '//*[@id="microsoft-auth-button"]', 'next': '//*[@id="idSIButton9"]', 'username': '//*[@id="i0116"]', 'search': '//div[@role ="search...</msg>
-<status status="PASS" starttime="20250829 19:32:00.482" endtime="20250829 19:32:00.482"/>
-</kw>
-<kw name="Set Suite Variable" library="BuiltIn">
-<arg>${home_section}</arg>
-<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<msg timestamp="20250829 19:32:00.482" level="INFO">${home_section} = {'logined': "//*[(text()='Log in to continue')]", 'log_microsoft': '//*[@id="microsoft-auth-button"]', 'next': '//*[@id="idSIButton9"]', 'username': '//*[@id="i0116"]', 'search': '//div[@role ="search...</msg>
-<status status="PASS" starttime="20250829 19:32:00.482" endtime="20250829 19:32:00.482"/>
-</kw>
-<kw name="Log in">
-<kw name="Open XLeads" library="keyword">
-<kw name="Open Browser" library="SeleniumLibrary">
 <arg>${jirapath}</arg>
-<arg>browser=${browser}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20250829 19:32:00.482" level="INFO">Opening browser 'Edge' to base url 'https://id.atlassian.com/login?continue=https%3A%2F%2Fid.atlassian.com%2Fjoin%2Fuser-access%3Fresource%3Dari%253Acloud%253Ajira%253A%253Asite%252Fd134ff73-ae01-4896-99d8-37238f888144%26continue%3Dhttps%253A%252F%252Fscbjira.atlassian.net%252Fbrowse%252FQA-456210&amp;application=jira'.</msg>
-<status status="PASS" starttime="20250829 19:32:00.482" endtime="20250829 19:32:09.250"/>
+<arg>${browser}</arg>
+<status status="PASS" start="2025-09-01T00:07:27.119753" elapsed="3.352296"/>
 </kw>
-<kw name="Maximize Browser Window" library="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20250829 19:32:09.251" endtime="20250829 19:32:09.292"/>
-</kw>
-<kw name="PAGE ZOOM to 50" library="keyword">
-<kw name="Zoom Out" library="zoomout">
-<status status="PASS" starttime="20250829 19:32:09.292" endtime="20250829 19:32:10.000"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>0.5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20250829 19:32:10.500" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20250829 19:32:10.000" endtime="20250829 19:32:10.500"/>
-</kw>
-<status status="PASS" starttime="20250829 19:32:09.292" endtime="20250829 19:32:10.500"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>0.5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20250829 19:32:11.000" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20250829 19:32:10.500" endtime="20250829 19:32:11.000"/>
-</kw>
-<status status="PASS" starttime="20250829 19:32:00.482" endtime="20250829 19:32:11.000"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-01T00:07:33.472501" level="INFO">Slept 3 seconds.</msg>
 <arg>3s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20250829 19:32:14.001" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" starttime="20250829 19:32:11.000" endtime="20250829 19:32:14.001"/>
+<status status="PASS" start="2025-09-01T00:07:30.472049" elapsed="3.000452"/>
 </kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Element Should Be Visible" owner="play">
+<msg time="2025-09-01T00:07:33.476169" level="FAIL">Variable '${home_section}' not found.</msg>
+<arg>${home_section}[log_microsoft]</arg>
+<status status="FAIL" start="2025-09-01T00:07:33.474169" elapsed="0.002000">Variable '${home_section}' not found.</status>
+</kw>
+<msg time="2025-09-01T00:07:33.476169" level="INFO">${Islogined} = False</msg>
 <var>${Islogined}</var>
 <arg>Element Should Be Visible</arg>
-<arg>${home_section}[logined]</arg>
+<arg>${home_section}[log_microsoft]</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Element Should Be Visible" library="SeleniumLibrary">
-<arg>${home_section}[logined]</arg>
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20250829 19:32:14.014" level="INFO">Element '//*[(text()='Log in to continue')]' is displayed.</msg>
-<status status="PASS" starttime="20250829 19:32:14.001" endtime="20250829 19:32:14.014"/>
-</kw>
-<msg timestamp="20250829 19:32:14.014" level="INFO">${Islogined} = True</msg>
-<status status="PASS" starttime="20250829 19:32:14.001" endtime="20250829 19:32:14.014"/>
+<status status="PASS" start="2025-09-01T00:07:33.473080" elapsed="0.003089"/>
 </kw>
 <if>
 <branch type="IF" condition="${Islogined}">
-<kw name="Wait and Click" library="keyword">
+<kw name="Wait and Click" owner="keyword">
 <arg>${home_section}[log_microsoft]</arg>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${path}</arg>
-<arg>${time}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20250829 19:32:14.014" endtime="20250829 19:32:14.034"/>
+<status status="NOT RUN" start="2025-09-01T00:07:33.477166" elapsed="0.000000"/>
 </kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>0.5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20250829 19:32:14.534" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20250829 19:32:14.034" endtime="20250829 19:32:14.534"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${path}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20250829 19:32:14.534" level="INFO">Clicking element '//*[@id="microsoft-auth-button"]'.</msg>
-<status status="PASS" starttime="20250829 19:32:14.534" endtime="20250829 19:32:18.238"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>0.5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20250829 19:32:18.738" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20250829 19:32:18.238" endtime="20250829 19:32:18.738"/>
-</kw>
-<status status="PASS" starttime="20250829 19:32:14.014" endtime="20250829 19:32:18.738"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
+<kw name="Sleep" owner="BuiltIn">
 <arg>3s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20250829 19:32:21.739" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" starttime="20250829 19:32:18.738" endtime="20250829 19:32:21.739"/>
+<status status="NOT RUN" start="2025-09-01T00:07:33.478162" elapsed="0.000000"/>
 </kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
 <var>${IsAnother}</var>
 <arg>Element Should Be Visible</arg>
 <arg>//div[@id="otherTileText"]</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Element Should Be Visible" library="SeleniumLibrary">
-<arg>//div[@id="otherTileText"]</arg>
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20250829 19:32:21.760" level="INFO">Element '//div[@id="otherTileText"]' is displayed.</msg>
-<status status="PASS" starttime="20250829 19:32:21.740" endtime="20250829 19:32:21.760"/>
-</kw>
-<msg timestamp="20250829 19:32:21.760" level="INFO">${IsAnother} = True</msg>
-<status status="PASS" starttime="20250829 19:32:21.739" endtime="20250829 19:32:21.760"/>
+<status status="NOT RUN" start="2025-09-01T00:07:33.478162" elapsed="0.000000"/>
 </kw>
 <if>
 <branch type="IF" condition="${IsAnother}">
-<kw name="Wait and Click" library="keyword">
+<kw name="Wait and Click" owner="keyword">
 <arg>//div[@id="otherTileText"]</arg>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${path}</arg>
-<arg>${time}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20250829 19:32:21.760" endtime="20250829 19:32:21.773"/>
+<status status="NOT RUN" start="2025-09-01T00:07:33.479089" elapsed="0.000000"/>
 </kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>0.5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20250829 19:32:22.273" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20250829 19:32:21.773" endtime="20250829 19:32:22.273"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${path}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20250829 19:32:22.273" level="INFO">Clicking element '//div[@id="otherTileText"]'.</msg>
-<status status="PASS" starttime="20250829 19:32:22.273" endtime="20250829 19:32:22.335"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>0.5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20250829 19:32:22.837" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20250829 19:32:22.336" endtime="20250829 19:32:22.837"/>
-</kw>
-<status status="PASS" starttime="20250829 19:32:21.760" endtime="20250829 19:32:22.837"/>
-</kw>
-<status status="PASS" starttime="20250829 19:32:21.760" endtime="20250829 19:32:22.837"/>
+<status status="NOT RUN" start="2025-09-01T00:07:33.479089" elapsed="0.000000"/>
 </branch>
-<status status="PASS" starttime="20250829 19:32:21.760" endtime="20250829 19:32:22.837"/>
+<status status="NOT RUN" start="2025-09-01T00:07:33.478162" elapsed="0.000927"/>
 </if>
-<kw name="Wait and Input" library="keyword">
+<kw name="Wait and Input" owner="keyword">
 <arg>${home_section}[username]</arg>
 <arg>${Username}</arg>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${path}</arg>
-<arg>${time}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20250829 19:32:22.837" endtime="20250829 19:32:22.902"/>
+<status status="NOT RUN" start="2025-09-01T00:07:33.479089" elapsed="0.001004"/>
 </kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>0.5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20250829 19:32:23.403" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20250829 19:32:22.902" endtime="20250829 19:32:23.403"/>
-</kw>
-<kw name="Clear Element Text" library="SeleniumLibrary">
-<arg>${path}</arg>
-<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
-<status status="PASS" starttime="20250829 19:32:23.403" endtime="20250829 19:32:23.452"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${path}</arg>
-<arg>${text}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20250829 19:32:23.452" level="INFO">Typing text 'napol.tharanajesda@scb.co.th' into text field '//*[@id="i0116"]'.</msg>
-<status status="PASS" starttime="20250829 19:32:23.452" endtime="20250829 19:32:23.514"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>0.5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20250829 19:32:24.015" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20250829 19:32:23.514" endtime="20250829 19:32:24.015"/>
-</kw>
-<status status="PASS" starttime="20250829 19:32:22.837" endtime="20250829 19:32:24.015"/>
-</kw>
-<kw name="Wait and Click" library="keyword">
-<arg>${home_section}[next]</arg>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${path}</arg>
-<arg>${time}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20250829 19:32:24.015" endtime="20250829 19:32:24.033"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>0.5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20250829 19:32:24.534" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20250829 19:32:24.033" endtime="20250829 19:32:24.534"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${path}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20250829 19:32:24.534" level="INFO">Clicking element '//*[@id="idSIButton9"]'.</msg>
-<status status="PASS" starttime="20250829 19:32:24.534" endtime="20250829 19:32:24.582"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>0.5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20250829 19:32:25.082" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20250829 19:32:24.582" endtime="20250829 19:32:25.082"/>
-</kw>
-<status status="PASS" starttime="20250829 19:32:24.015" endtime="20250829 19:32:25.083"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
+<kw name="Sleep" owner="BuiltIn">
 <arg>3s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20250829 19:32:28.083" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" starttime="20250829 19:32:25.083" endtime="20250829 19:32:28.083"/>
+<status status="NOT RUN" start="2025-09-01T00:07:33.480093" elapsed="0.000000"/>
 </kw>
-<kw name="Wait and Click" library="keyword">
+<kw name="Wait and Click" owner="keyword">
 <arg>//*[@id="idSIButton9"]</arg>
 <arg>300s</arg>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${path}</arg>
-<arg>${time}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20250829 19:32:28.083" endtime="20250829 19:32:33.445"/>
+<status status="NOT RUN" start="2025-09-01T00:07:33.480093" elapsed="0.000000"/>
 </kw>
-<kw name="Sleep" library="BuiltIn">
+<kw name="Sleep" owner="BuiltIn">
 <arg>0.5s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20250829 19:32:33.945" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20250829 19:32:33.445" endtime="20250829 19:32:33.945"/>
+<status status="NOT RUN" start="2025-09-01T00:07:33.481105" elapsed="0.000000"/>
 </kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${path}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20250829 19:32:33.945" level="INFO">Clicking element '//*[@id="idSIButton9"]'.</msg>
-<status status="PASS" starttime="20250829 19:32:33.945" endtime="20250829 19:32:33.977"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>0.5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20250829 19:32:34.477" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20250829 19:32:33.977" endtime="20250829 19:32:34.477"/>
-</kw>
-<status status="PASS" starttime="20250829 19:32:28.083" endtime="20250829 19:32:34.477"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>0.5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20250829 19:32:34.977" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20250829 19:32:34.477" endtime="20250829 19:32:34.977"/>
-</kw>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<kw name="Wait Until Element Is Visible" owner="play">
 <arg>${home_section}[search]</arg>
 <arg>timeout=300s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20250829 19:32:34.977" endtime="20250829 19:32:50.010"/>
+<status status="NOT RUN" start="2025-09-01T00:07:33.481105" elapsed="0.000000"/>
 </kw>
-<kw name="Sleep" library="BuiltIn">
+<kw name="Sleep" owner="BuiltIn">
 <arg>0.5s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20250829 19:32:50.511" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20250829 19:32:50.010" endtime="20250829 19:32:50.511"/>
+<status status="NOT RUN" start="2025-09-01T00:07:33.481105" elapsed="0.000000"/>
 </kw>
-<status status="PASS" starttime="20250829 19:32:14.014" endtime="20250829 19:32:50.511"/>
+<status status="NOT RUN" start="2025-09-01T00:07:33.476169" elapsed="0.004936"/>
 </branch>
 <branch type="ELSE">
 <return>
-<status status="NOT RUN" starttime="20250829 19:32:50.511" endtime="20250829 19:32:50.511"/>
+<status status="PASS" start="2025-09-01T00:07:33.482109" elapsed="0.000000"/>
 </return>
-<status status="NOT RUN" starttime="20250829 19:32:50.511" endtime="20250829 19:32:50.511"/>
+<status status="PASS" start="2025-09-01T00:07:33.482109" elapsed="0.000000"/>
 </branch>
-<status status="PASS" starttime="20250829 19:32:14.014" endtime="20250829 19:32:50.511"/>
+<status status="PASS" start="2025-09-01T00:07:33.476169" elapsed="0.005940"/>
 </if>
-<status status="PASS" starttime="20250829 19:32:00.482" endtime="20250829 19:32:50.511"/>
+<status status="PASS" start="2025-09-01T00:07:27.119753" elapsed="6.362356"/>
 </kw>
-<kw name="Getkeysbyorder" library="handledata">
-<var>${Keys_No}</var>
+<test id="s1-t1" name="GlobalSearch" line="34">
+<kw name="Get All Path" owner="keyword">
+<kw name="Getpathsectionbyrow" owner="handledata">
+<msg time="2025-09-01T00:07:33.523872" level="INFO">${paths} = {'Home': {'logined': "//*[(text()='Log in to continue')]", 'log_microsoft': '//*[@id="microsoft-auth-button"]', 'next': '//*[@id="idSIButton9"]', 'username': '//*[@id="i0116"]', 'search': '//div[@role...</msg>
+<var>${paths}</var>
+<arg>${excelname}</arg>
+<arg>${pathsheet}</arg>
+<status status="PASS" start="2025-09-01T00:07:33.493097" elapsed="0.030775"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-09-01T00:07:33.524875" level="INFO">${paths} = {'Home': {'logined': "//*[(text()='Log in to continue')]", 'log_microsoft': '//*[@id="microsoft-auth-button"]', 'next': '//*[@id="idSIButton9"]', 'username': '//*[@id="i0116"]', 'search': '//div[@role...</msg>
+<arg>${paths}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-09-01T00:07:33.523872" elapsed="0.001003"/>
+</kw>
+<status status="PASS" start="2025-09-01T00:07:33.493097" elapsed="0.031778"/>
+</kw>
+<kw name="Get All Data" owner="keyword">
+<kw name="Getdatabycol" owner="handledata">
+<msg time="2025-09-01T00:07:33.544869" level="INFO">${data} = {'TEST17': {'SubTaskName': 'TEST17', 'TaskName': 'DM-20', 'Assignee': 'Chomchanok Maolee', 'Reporter': 'Chomchanok Maolee', 'StartDate': '8/2/2025', 'EndDate': '8/29/2025', 'ActualStartDate': '8/29/20...</msg>
+<var>${data}</var>
+<arg>${excelname}</arg>
+<arg>${CAsheet}</arg>
+<status status="PASS" start="2025-09-01T00:07:33.524875" elapsed="0.019994"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-09-01T00:07:33.545867" level="INFO">${data} = {'TEST17': {'SubTaskName': 'TEST17', 'TaskName': 'DM-20', 'Assignee': 'Chomchanok Maolee', 'Reporter': 'Chomchanok Maolee', 'StartDate': '8/2/2025', 'EndDate': '8/29/2025', 'ActualStartDate': '8/29/20...</msg>
 <arg>${data}</arg>
-<msg timestamp="20250829 19:32:50.512" level="INFO">${Keys_No} = ['1']</msg>
-<status status="PASS" starttime="20250829 19:32:50.512" endtime="20250829 19:32:50.512"/>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-09-01T00:07:33.545867" elapsed="0.001000"/>
+</kw>
+<status status="PASS" start="2025-09-01T00:07:33.524875" elapsed="0.021992"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-01T00:07:33.547868" level="INFO">${home_section} = {'logined': "//*[(text()='Log in to continue')]", 'log_microsoft': '//*[@id="microsoft-auth-button"]', 'next': '//*[@id="idSIButton9"]', 'username': '//*[@id="i0116"]', 'search': '//div[@role ="search...</msg>
+<var>${home_section}</var>
+<arg>${paths}</arg>
+<arg>Home</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-01T00:07:33.546867" elapsed="0.001001"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-09-01T00:07:33.548865" level="INFO">${home_section} = {'logined': "//*[(text()='Log in to continue')]", 'log_microsoft': '//*[@id="microsoft-auth-button"]', 'next': '//*[@id="idSIButton9"]', 'username': '//*[@id="i0116"]', 'search': '//div[@role ="search...</msg>
+<arg>${home_section}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-09-01T00:07:33.547868" elapsed="0.000997"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="play">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-01T00:07:33.586058" level="INFO">Waited for Element with selector //div[@role ="search"]//input at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-09-01T00:07:33.551329" elapsed="0.034729"/>
+</kw>
+<arg>${home_section}[search]</arg>
+<arg>timeout=300s</arg>
+<status status="PASS" start="2025-09-01T00:07:33.551329" elapsed="0.034729"/>
+</kw>
+<kw name="Getkeysbyorder" owner="handledata">
+<msg time="2025-09-01T00:07:33.587059" level="INFO">${Keys_Nos} = ['TEST17', 'TEST6', 'TEST7', 'TEST8', 'TEST9', 'TEST10', 'TEST11', 'TEST12', 'TEST13', 'TEST14', 'TEST15']</msg>
+<var>${Keys_Nos}</var>
+<arg>${data}</arg>
+<status status="PASS" start="2025-09-01T00:07:33.587059" elapsed="0.000000"/>
 </kw>
 <for flavor="IN ENUMERATE">
-<var>${index}</var>
-<var>${Keys_No}</var>
-<value>@{Keys_No}</value>
 <iter>
-<var name="${index}">0</var>
-<var name="${Keys_No}">1</var>
 <try>
 <branch type="TRY">
-<kw name="Wait and Input" library="keyword">
-<arg>//input[@data-test-id="search-dialog-input"]</arg>
-<arg>${Qa}</arg>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-01T00:07:33.589061" level="INFO">${taskname} = DM-20</msg>
+<var>${taskname}</var>
+<arg>${data}[${Keys_No}][TaskName]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-01T00:07:33.589061" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-01T00:07:33.590062" level="INFO">${pathtask} = //*[text()="DM-20"]</msg>
+<var>${pathtask}</var>
+<arg>//*[text()="${taskname}"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-01T00:07:33.589061" elapsed="0.001001"/>
+</kw>
+<kw name="Wait Scroll and Click" owner="keyword">
+<kw name="Wait Until Element Is Visible" owner="play">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-01T00:07:33.599239" level="INFO">Waited for Element with selector //*[text()="DM-20"] at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-09-01T00:07:33.591058" elapsed="0.008181"/>
+</kw>
 <arg>${path}</arg>
 <arg>${time}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20250829 19:32:50.513" endtime="20250829 19:32:50.944"/>
+<status status="PASS" start="2025-09-01T00:07:33.590062" elapsed="0.010178"/>
 </kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>0.5s</arg>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-01T00:07:33.800844" level="INFO">Slept 200 milliseconds.</msg>
+<arg>${time2}</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20250829 19:32:51.444" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20250829 19:32:50.944" endtime="20250829 19:32:51.444"/>
+<status status="PASS" start="2025-09-01T00:07:33.600240" elapsed="0.200604"/>
 </kw>
-<kw name="Clear Element Text" library="SeleniumLibrary">
+<kw name="Scroll To Element" owner="Browser">
 <arg>${path}</arg>
-<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
-<status status="PASS" starttime="20250829 19:32:51.444" endtime="20250829 19:32:51.859"/>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>This method waits for actionability checks, then tries to scroll element into view,
+unless it is completely visible.</doc>
+<status status="PASS" start="2025-09-01T00:07:33.801372" elapsed="0.034029"/>
 </kw>
-<kw name="Input Text" library="SeleniumLibrary">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-01T00:07:34.036701" level="INFO">Slept 200 milliseconds.</msg>
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-01T00:07:33.835401" elapsed="0.201300"/>
+</kw>
+<kw name="Click Element" owner="play">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-01T00:07:34.049241" level="INFO">Waited for Element with selector //*[text()="DM-20"] at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-09-01T00:07:34.038258" elapsed="0.011982"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-01T00:07:34.067415" level="INFO">Waited for Element with selector //*[text()="DM-20"] at state stable</msg>
+<arg>${locator}</arg>
+<arg>stable</arg>
+<arg>${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-09-01T00:07:34.050240" elapsed="0.018191"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2025-09-01T00:07:34.070420" level="INFO">Clicks the element '//*[text()="DM-20"]'.</msg>
+<arg>${locator}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-09-01T00:07:34.068431" elapsed="0.192739"/>
+</kw>
+<arg>${path}</arg>
+<status status="PASS" start="2025-09-01T00:07:34.037228" elapsed="0.224967"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-01T00:07:34.463595" level="INFO">Slept 200 milliseconds.</msg>
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-01T00:07:34.262195" elapsed="0.201400"/>
+</kw>
+<arg>${pathtask}</arg>
+<status status="PASS" start="2025-09-01T00:07:33.590062" elapsed="0.874539"/>
+</kw>
+<kw name="Wait Scroll and Click" owner="keyword">
+<kw name="Wait Until Element Is Visible" owner="play">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-01T00:07:35.868524" level="INFO">Waited for Element with selector //div[@class="css-b97o1m"]//button at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-09-01T00:07:34.466601" elapsed="1.402919"/>
+</kw>
+<arg>${path}</arg>
+<arg>${time}</arg>
+<status status="PASS" start="2025-09-01T00:07:34.465606" elapsed="1.403914"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-01T00:07:36.069653" level="INFO">Slept 200 milliseconds.</msg>
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-01T00:07:35.869520" elapsed="0.200642"/>
+</kw>
+<kw name="Scroll To Element" owner="Browser">
+<arg>${path}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>This method waits for actionability checks, then tries to scroll element into view,
+unless it is completely visible.</doc>
+<status status="PASS" start="2025-09-01T00:07:36.070162" elapsed="0.134454"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-01T00:07:36.404678" level="INFO">Slept 200 milliseconds.</msg>
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-01T00:07:36.204616" elapsed="0.200062"/>
+</kw>
+<kw name="Click Element" owner="play">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-01T00:07:36.429690" level="INFO">Waited for Element with selector //div[@class="css-b97o1m"]//button at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-09-01T00:07:36.405685" elapsed="0.025005"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-01T00:07:36.530401" level="INFO">Waited for Element with selector //div[@class="css-b97o1m"]//button at state stable</msg>
+<arg>${locator}</arg>
+<arg>stable</arg>
+<arg>${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-09-01T00:07:36.430690" elapsed="0.099711"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2025-09-01T00:07:36.531401" level="INFO">Clicks the element '//div[@class="css-b97o1m"]//button'.</msg>
+<arg>${locator}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-09-01T00:07:36.530401" elapsed="0.765535"/>
+</kw>
+<arg>${path}</arg>
+<status status="PASS" start="2025-09-01T00:07:36.404678" elapsed="0.891258"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-01T00:07:37.498295" level="INFO">Slept 200 milliseconds.</msg>
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-01T00:07:37.296937" elapsed="0.201358"/>
+</kw>
+<arg>${home_section}[addsubtask]</arg>
+<status status="PASS" start="2025-09-01T00:07:34.464601" elapsed="3.033694"/>
+</kw>
+<kw name="Wait Scroll and Input" owner="keyword">
+<kw name="Wait Until Element Is Visible" owner="play">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-01T00:07:37.551314" level="INFO">Waited for Element with selector //div[@role="presentation"]//input[@id="childIssuesPanel"] at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-09-01T00:07:37.499805" elapsed="0.051509"/>
+</kw>
+<arg>${path}</arg>
+<arg>${time}</arg>
+<status status="PASS" start="2025-09-01T00:07:37.498799" elapsed="0.053534"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-01T00:07:37.753018" level="INFO">Slept 200 milliseconds.</msg>
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-01T00:07:37.552333" elapsed="0.200685"/>
+</kw>
+<kw name="Scroll To Element" owner="Browser">
+<arg>${path}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>This method waits for actionability checks, then tries to scroll element into view,
+unless it is completely visible.</doc>
+<status status="PASS" start="2025-09-01T00:07:37.753018" elapsed="0.064614"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-01T00:07:38.018008" level="INFO">Slept 200 milliseconds.</msg>
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-01T00:07:37.817632" elapsed="0.200376"/>
+</kw>
+<kw name="Clear Element Text" owner="play">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-01T00:07:38.034555" level="INFO">Waited for Element with selector //div[@role="presentation"]//input[@id="childIssuesPanel"] at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-09-01T00:07:38.019569" elapsed="0.014986"/>
+</kw>
+<kw name="Clear Text" owner="Browser">
+<arg>${locator}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-09-01T00:07:38.034555" elapsed="0.021346"/>
+</kw>
+<arg>${path}</arg>
+<status status="PASS" start="2025-09-01T00:07:38.018536" elapsed="0.037365"/>
+</kw>
+<kw name="Input Text" owner="play">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-01T00:07:38.063609" level="INFO">Waited for Element with selector //div[@role="presentation"]//input[@id="childIssuesPanel"] at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-09-01T00:07:38.057912" elapsed="0.005697"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2025-09-01T00:07:38.064611" level="INFO">Clicks the element '//div[@role="presentation"]//input[@id="childIssuesPanel"]'.</msg>
+<arg>${locator}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-09-01T00:07:38.064611" elapsed="0.042565"/>
+</kw>
+<kw name="Clear Text" owner="Browser">
+<arg>${locator}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-09-01T00:07:38.108167" elapsed="0.009992"/>
+</kw>
+<kw name="Type Text" owner="Browser">
+<msg time="2025-09-01T00:07:38.119169" level="INFO">Types the text 'TEST17' in the given field.</msg>
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<arg>delay=0.0s</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-09-01T00:07:38.119169" elapsed="0.174611"/>
+</kw>
+<kw name="Get Property" owner="Browser">
+<msg time="2025-09-01T00:07:38.359316" level="INFO">Property: 'TEST17'</msg>
+<msg time="2025-09-01T00:07:38.359316" level="INFO">${val} = TEST17</msg>
+<var>${val}</var>
+<arg>${locator}</arg>
+<arg>value</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the ``property`` of the element found by ``selector``.</doc>
+<status status="PASS" start="2025-09-01T00:07:38.294779" elapsed="0.064537"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${val}</arg>
+<arg>${text}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-09-01T00:07:38.359316" elapsed="0.001002"/>
+</kw>
 <arg>${path}</arg>
 <arg>${text}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20250829 19:32:51.860" level="INFO">Typing text 'QA-456210' into text field '//input[@data-test-id="search-dialog-input"]'.</msg>
-<msg timestamp="20250829 19:32:52.919" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-26.png"&gt;&lt;img src="selenium-screenshot-26.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20250829 19:32:52.919" level="FAIL">StaleElementReferenceException: Message: stale element reference: stale element not found in the current frame
-  (Session info: MicrosoftEdge=139.0.3405.119)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff6defde795+22117]
-	(No symbol) [0x0x7ff6def2ee10]
-	GetHandleVerifier [0x0x7ff6df264c3c+2669324]
-	(No symbol) [0x0x7ff6ded03794]
-	(No symbol) [0x0x7ff6ded0602c]
-	(No symbol) [0x0x7ff6ded060ff]
-	(No symbol) [0x0x7ff6ded44a99]
-	(No symbol) [0x0x7ff6ded4356d]
-	(No symbol) [0x0x7ff6ded6a7ea]
-	(No symbol) [0x0x7ff6ded3f68d]
-	(No symbol) [0x0x7ff6ded3f54d]
-	(No symbol) [0x0x7ff6ded6aab0]
-	(No symbol) [0x0x7ff6ded3f68d]
-	(No symbol) [0x0x7ff6ded8762f]
-	(No symbol) [0x0x7ff6ded6a553]
-	(No symbol) [0x0x7ff6ded3eb86]
-	(No symbol) [0x0x7ff6ded3de11]
-	(No symbol) [0x0x7ff6ded3e9b3]
-	(No symbol) [0x0x7ff6dee3907d]
-	(No symbol) [0x0x7ff6dee45fe8]
-	GetHandleVerifier [0x0x7ff6df0bf287+942423]
-	GetHandleVerifier [0x0x7ff6df0c8231+979201]
-	(No symbol) [0x0x7ff6def3c3c1]
-	(No symbol) [0x0x7ff6def34d74]
-	(No symbol) [0x0x7ff6def34ec3]
-	(No symbol) [0x0x7ff6def27026]
-	BaseThreadInitThunk [0x0x7ffe87a6e8d7+23]
-	RtlUserThreadStart [0x0x7ffe887dc34c+44]
-</msg>
-<status status="FAIL" starttime="20250829 19:32:51.860" endtime="20250829 19:32:52.926"/>
+<status status="PASS" start="2025-09-01T00:07:38.056916" elapsed="0.303402"/>
 </kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>0.5s</arg>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-01T00:07:38.560727" level="INFO">Slept 200 milliseconds.</msg>
+<arg>${time2}</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" starttime="20250829 19:32:52.926" endtime="20250829 19:32:52.926"/>
+<status status="PASS" start="2025-09-01T00:07:38.360318" elapsed="0.200409"/>
 </kw>
-<status status="FAIL" starttime="20250829 19:32:50.512" endtime="20250829 19:32:52.926"/>
-</kw>
-<kw name="Press Keys" library="SeleniumLibrary">
-<arg>${home_section}[search]</arg>
-<arg>ENTER</arg>
-<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="NOT RUN" starttime="20250829 19:32:52.926" endtime="20250829 19:32:52.926"/>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${pathtask}</var>
-<arg>//*[text()="${data}[${Keys_No}][TaskName]"]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" starttime="20250829 19:32:52.926" endtime="20250829 19:32:52.926"/>
-</kw>
-<kw name="Wait Scroll and Click" library="keyword">
-<arg>${pathtask}</arg>
-<status status="NOT RUN" starttime="20250829 19:32:52.926" endtime="20250829 19:32:52.926"/>
-</kw>
-<kw name="Wait Scroll and Click" library="keyword">
-<arg>${home_section}[addsubtask]</arg>
-<status status="NOT RUN" starttime="20250829 19:32:52.926" endtime="20250829 19:32:52.926"/>
-</kw>
-<kw name="Wait Scroll and Input" library="keyword">
 <arg>${home_section}[namesubtask]</arg>
 <arg>${data}[${Keys_No}][SubTaskName]</arg>
-<status status="NOT RUN" starttime="20250829 19:32:52.926" endtime="20250829 19:32:52.926"/>
+<status status="PASS" start="2025-09-01T00:07:37.498799" elapsed="1.061928"/>
 </kw>
-<kw name="Wait and Click" library="keyword">
+<kw name="Wait and Click" owner="keyword">
+<kw name="Wait Until Element Is Visible" owner="play">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-01T00:07:38.567735" level="INFO">Waited for Element with selector //div[@class="_1bahesu3 _1e0c1txw"]//button[1] at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-09-01T00:07:38.561742" elapsed="0.005993"/>
+</kw>
+<arg>${path}</arg>
+<arg>${time}</arg>
+<status status="PASS" start="2025-09-01T00:07:38.561742" elapsed="0.005993"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-01T00:07:39.069376" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-01T00:07:38.567735" elapsed="0.501641"/>
+</kw>
+<kw name="Click Element" owner="play">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-01T00:07:39.086577" level="INFO">Waited for Element with selector //div[@class="_1bahesu3 _1e0c1txw"]//button[1] at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-09-01T00:07:39.071473" elapsed="0.015104"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-01T00:07:39.104890" level="INFO">Waited for Element with selector //div[@class="_1bahesu3 _1e0c1txw"]//button[1] at state stable</msg>
+<arg>${locator}</arg>
+<arg>stable</arg>
+<arg>${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-09-01T00:07:39.087576" elapsed="0.017314"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2025-09-01T00:07:39.105886" level="INFO">Clicks the element '//div[@class="_1bahesu3 _1e0c1txw"]//button[1]'.</msg>
+<arg>${locator}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-09-01T00:07:39.104890" elapsed="0.125347"/>
+</kw>
+<arg>${path}</arg>
+<status status="PASS" start="2025-09-01T00:07:39.070482" elapsed="0.160730"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-01T00:07:39.732074" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-01T00:07:39.231212" elapsed="0.500862"/>
+</kw>
 <arg>${home_section}[create]</arg>
-<status status="NOT RUN" starttime="20250829 19:32:52.926" endtime="20250829 19:32:52.926"/>
+<status status="PASS" start="2025-09-01T00:07:38.560727" elapsed="1.172419"/>
 </kw>
-<kw name="Set Variable" library="BuiltIn">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-01T00:07:39.734092" level="INFO">${pathtask} = //*[text()="TEST17"]</msg>
 <var>${pathtask}</var>
 <arg>//*[text()="${data}[${Keys_No}][SubTaskName]"]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" starttime="20250829 19:32:52.926" endtime="20250829 19:32:52.926"/>
+<status status="PASS" start="2025-09-01T00:07:39.733146" elapsed="0.000946"/>
 </kw>
-<kw name="Wait Scroll and Click" library="keyword">
+<kw name="Wait Scroll and Click" owner="keyword">
+<kw name="Wait Until Element Is Visible" owner="play">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-01T00:07:40.869409" level="INFO">Waited for Element with selector //*[text()="TEST17"] at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-09-01T00:07:39.737106" elapsed="1.132303"/>
+</kw>
+<arg>${path}</arg>
+<arg>${time}</arg>
+<status status="PASS" start="2025-09-01T00:07:39.736099" elapsed="1.133310"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-01T00:07:41.069761" level="INFO">Slept 200 milliseconds.</msg>
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-01T00:07:40.869409" elapsed="0.200352"/>
+</kw>
+<kw name="Scroll To Element" owner="Browser">
+<arg>${path}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>This method waits for actionability checks, then tries to scroll element into view,
+unless it is completely visible.</doc>
+<status status="PASS" start="2025-09-01T00:07:41.069761" elapsed="0.053137"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-01T00:07:41.323347" level="INFO">Slept 200 milliseconds.</msg>
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-01T00:07:41.122898" elapsed="0.200449"/>
+</kw>
+<kw name="Click Element" owner="play">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-01T00:07:41.355357" level="INFO">Waited for Element with selector //*[text()="TEST17"] at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-09-01T00:07:41.325361" elapsed="0.029996"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-01T00:07:41.372139" level="INFO">Waited for Element with selector //*[text()="TEST17"] at state stable</msg>
+<arg>${locator}</arg>
+<arg>stable</arg>
+<arg>${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-09-01T00:07:41.355357" elapsed="0.016782"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2025-09-01T00:07:41.372689" level="INFO">Clicks the element '//*[text()="TEST17"]'.</msg>
+<arg>${locator}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-09-01T00:07:41.372139" elapsed="0.230071"/>
+</kw>
+<arg>${path}</arg>
+<status status="PASS" start="2025-09-01T00:07:41.324370" elapsed="0.277840"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-01T00:07:41.802351" level="INFO">Slept 200 milliseconds.</msg>
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-01T00:07:41.602210" elapsed="0.200141"/>
+</kw>
 <arg>${pathtask}</arg>
-<status status="NOT RUN" starttime="20250829 19:32:52.927" endtime="20250829 19:32:52.927"/>
+<status status="PASS" start="2025-09-01T00:07:39.735097" elapsed="2.067254"/>
 </kw>
-<kw name="Wait Scroll and Input" library="keyword">
+<kw name="Click And Type" owner="play">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-01T00:07:42.303550" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-01T00:07:41.802859" elapsed="0.500691"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="play">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-01T00:07:42.316780" level="INFO">Waited for Element with selector //div[@data-testid="issue.views.field.user.assignee"] at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-09-01T00:07:42.304647" elapsed="0.012133"/>
+</kw>
+<arg>${field_locator}</arg>
+<arg>${timeout}</arg>
+<status status="PASS" start="2025-09-01T00:07:42.303550" elapsed="0.013230"/>
+</kw>
+<kw name="Click Element" owner="play">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-01T00:07:42.330112" level="INFO">Waited for Element with selector //div[@data-testid="issue.views.field.user.assignee"] at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-09-01T00:07:42.318784" elapsed="0.012414"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-01T00:07:42.349656" level="INFO">Waited for Element with selector //div[@data-testid="issue.views.field.user.assignee"] at state stable</msg>
+<arg>${locator}</arg>
+<arg>stable</arg>
+<arg>${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-09-01T00:07:42.331198" elapsed="0.018458"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2025-09-01T00:07:42.350657" level="INFO">Clicks the element '//div[@data-testid="issue.views.field.user.assignee"]'.</msg>
+<arg>${locator}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-09-01T00:07:42.350657" elapsed="0.378041"/>
+</kw>
+<arg>${field_locator}</arg>
+<status status="PASS" start="2025-09-01T00:07:42.317769" elapsed="0.410929"/>
+</kw>
+<kw name="Press Keys" owner="Browser">
+<arg>Backspace</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given key combination into element found by ``selector``.</doc>
+<status status="PASS" start="2025-09-01T00:07:42.728698" elapsed="0.003000"/>
+</kw>
+<kw name="Type Text" owner="Browser">
+<msg time="2025-09-01T00:07:42.733696" level="INFO">Types the text 'Chomchanok Maolee' in the given field.</msg>
+<arg>//form[@role="presentation"]//input[@role="combobox"]</arg>
+<arg>${text}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-09-01T00:07:42.732698" elapsed="0.765131"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-01T00:07:44.499893" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-01T00:07:43.499342" elapsed="1.000551"/>
+</kw>
+<kw name="Press Keys" owner="Browser">
+<arg>//form[@role="presentation"]//input[@role="combobox"]</arg>
+<arg>Enter</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given key combination into element found by ``selector``.</doc>
+<status status="PASS" start="2025-09-01T00:07:44.499893" elapsed="0.294662"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-01T00:07:45.294760" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-01T00:07:44.794555" elapsed="0.500205"/>
+</kw>
 <arg>${home_section}[Assignee]</arg>
 <arg>${data}[${Keys_No}][Assignee]</arg>
-<status status="NOT RUN" starttime="20250829 19:32:52.927" endtime="20250829 19:32:52.927"/>
+<status status="PASS" start="2025-09-01T00:07:41.802859" elapsed="3.491901"/>
 </kw>
-<kw name="Wait Scroll and Input" library="keyword">
-<arg>${home_section}[Reporter]</arg>
-<arg>${data}[${Keys_No}][Reporter]</arg>
-<status status="NOT RUN" starttime="20250829 19:32:52.927" endtime="20250829 19:32:52.927"/>
+<kw name="Click And Type Date" owner="play">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-01T00:07:45.798179" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-01T00:07:45.297775" elapsed="0.500404"/>
 </kw>
-<kw name="Wait Scroll and Click" library="keyword">
-<arg>${home_section}[StartDate]</arg>
-<status status="NOT RUN" starttime="20250829 19:32:52.927" endtime="20250829 19:32:52.927"/>
+<kw name="Wait Until Element Is Visible" owner="play">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-01T00:07:45.817213" level="INFO">Waited for Element with selector (//span[@class="_1reo15vq _18m915vq _syaz131l _1bto1l2s _p12f1osq"])[3] at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-09-01T00:07:45.799192" elapsed="0.018021"/>
 </kw>
-<kw name="Wait Scroll and Click" library="keyword">
-<arg>${home_section}[EndDate]</arg>
-<status status="NOT RUN" starttime="20250829 19:32:52.927" endtime="20250829 19:32:52.927"/>
+<arg>${field_locator}</arg>
+<arg>${timeout}</arg>
+<status status="PASS" start="2025-09-01T00:07:45.798179" elapsed="0.019034"/>
 </kw>
-<kw name="Wait Scroll and Click" library="keyword">
-<arg>${home_section}[ActualStartDate]</arg>
-<status status="NOT RUN" starttime="20250829 19:32:52.927" endtime="20250829 19:32:52.927"/>
+<kw name="Click Element" owner="play">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-01T00:07:45.833779" level="INFO">Waited for Element with selector (//span[@class="_1reo15vq _18m915vq _syaz131l _1bto1l2s _p12f1osq"])[3] at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-09-01T00:07:45.818720" elapsed="0.015059"/>
 </kw>
-<kw name="Wait Scroll and Click" library="keyword">
-<arg>${home_section}[ActualEndDate]</arg>
-<status status="NOT RUN" starttime="20250829 19:32:52.927" endtime="20250829 19:32:52.927"/>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-01T00:07:45.887319" level="INFO">Waited for Element with selector (//span[@class="_1reo15vq _18m915vq _syaz131l _1bto1l2s _p12f1osq"])[3] at state stable</msg>
+<arg>${locator}</arg>
+<arg>stable</arg>
+<arg>${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-09-01T00:07:45.833779" elapsed="0.054557"/>
 </kw>
-<kw name="Wait Click And Input" library="keyword">
-<arg>${home_section}[OriginalEstimate]</arg>
-<arg>${data}[${Keys_No}][OriginalEstimate]</arg>
-<status status="NOT RUN" starttime="20250829 19:32:52.927" endtime="20250829 19:32:52.927"/>
+<kw name="Click" owner="Browser">
+<msg time="2025-09-01T00:07:45.889328" level="INFO">Clicks the element '(//span[@class="_1reo15vq _18m915vq _syaz131l _1bto1l2s _p12f1osq"])[3]'.</msg>
+<arg>${locator}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-09-01T00:07:45.888336" elapsed="0.215560"/>
 </kw>
-<kw name="Wait Scroll and Click" library="keyword">
-<arg>${home_section}[TimeTracking]</arg>
-<status status="NOT RUN" starttime="20250829 19:32:52.927" endtime="20250829 19:32:52.927"/>
+<arg>${field_locator}</arg>
+<status status="PASS" start="2025-09-01T00:07:45.817213" elapsed="0.287683"/>
 </kw>
-<kw name="Wait Scroll and Input" library="keyword">
-<arg>${home_section}[TimeSpent]</arg>
-<arg>${data}[${Keys_No}][TimeSpent]</arg>
-<status status="NOT RUN" starttime="20250829 19:32:52.927" endtime="20250829 19:32:52.927"/>
+<kw name="Press Keys" owner="Browser">
+<arg>Backspace</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given key combination into element found by ``selector``.</doc>
+<status status="PASS" start="2025-09-01T00:07:46.104896" elapsed="0.002997"/>
 </kw>
-<kw name="Wait Click And Input" library="keyword">
-<arg>${home_section}[starttime]</arg>
-<arg>${data}[${Keys_No}][starttime]</arg>
-<status status="NOT RUN" starttime="20250829 19:32:52.927" endtime="20250829 19:32:52.927"/>
+<kw name="Type Text" owner="Browser">
+<msg time="2025-09-01T00:07:46.107893" level="INFO">Types the text '8/2/2025' in the given field.</msg>
+<arg>//form[@role="presentation"]//input[@role="combobox"]</arg>
+<arg>${text}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-09-01T00:07:46.107893" elapsed="0.435072"/>
 </kw>
-<kw name="Press Keys" library="SeleniumLibrary">
-<arg>${home_section}[starttime]</arg>
-<arg>ENTER</arg>
-<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="NOT RUN" starttime="20250829 19:32:52.927" endtime="20250829 19:32:52.927"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-01T00:07:47.544515" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-01T00:07:46.542965" elapsed="1.001550"/>
 </kw>
-<kw name="Wait and Click" library="keyword">
-<arg>${home_section}[save]</arg>
-<status status="NOT RUN" starttime="20250829 19:32:52.927" endtime="20250829 19:32:52.927"/>
+<kw name="Press Keys" owner="Browser">
+<arg>//form[@role="presentation"]//input[@role="combobox"]</arg>
+<arg>Enter</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given key combination into element found by ``selector``.</doc>
+<status status="PASS" start="2025-09-01T00:07:47.544515" elapsed="0.047003"/>
 </kw>
-<kw name="Wait Click And Input" library="keyword">
-<arg>${home_section}[Addcomment]</arg>
-<arg>${data}[${Keys_No}][Addcomment]</arg>
-<status status="NOT RUN" starttime="20250829 19:32:52.928" endtime="20250829 19:32:52.928"/>
+<kw name="Press Keys" owner="Browser">
+<arg>//form[@role="presentation"]//input[@role="combobox"]</arg>
+<arg>Enter</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given key combination into element found by ``selector``.</doc>
+<status status="PASS" start="2025-09-01T00:07:47.591518" elapsed="0.255261"/>
 </kw>
-<kw name="Wait and Click" library="keyword">
-<arg>${home_section}[savecomment]</arg>
-<status status="NOT RUN" starttime="20250829 19:32:52.928" endtime="20250829 19:32:52.928"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-01T00:07:48.348018" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-01T00:07:47.847776" elapsed="0.500242"/>
 </kw>
-<kw name="Wait Click And Input" library="keyword">
-<arg>${home_section}[Description]</arg>
-<arg>${data}[${Keys_No}][Description]</arg>
-<status status="NOT RUN" starttime="20250829 19:32:52.928" endtime="20250829 19:32:52.928"/>
+<arg>(//span[@class="_1reo15vq _18m915vq _syaz131l _1bto1l2s _p12f1osq"])[3]</arg>
+<arg>${data}[${Keys_No}][StartDate]</arg>
+<status status="PASS" start="2025-09-01T00:07:45.295783" elapsed="3.052235"/>
 </kw>
-<kw name="Wait and Click" library="keyword">
-<arg>${home_section}[savedescription]</arg>
-<status status="NOT RUN" starttime="20250829 19:32:52.928" endtime="20250829 19:32:52.928"/>
+<kw name="Write Status To Excel" owner="keyword">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-01T00:07:48.350534" level="INFO">${index} = 2</msg>
+<var>${index}</var>
+<arg>${index}+2</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-01T00:07:48.350534" elapsed="0.000000"/>
 </kw>
-<status status="FAIL" starttime="20250829 19:32:50.512" endtime="20250829 19:32:52.928"/>
+<kw name="Write To Excel" owner="handledata">
+<arg>${excelname}</arg>
+<arg>${statussheet}</arg>
+<arg>A${index}</arg>
+<arg>${col1}</arg>
+<status status="PASS" start="2025-09-01T00:07:48.351535" elapsed="0.106531"/>
+</kw>
+<kw name="Write To Excel" owner="handledata">
+<arg>${excelname}</arg>
+<arg>${statussheet}</arg>
+<arg>B${index}</arg>
+<arg>${col2}</arg>
+<status status="PASS" start="2025-09-01T00:07:48.458066" elapsed="0.078003"/>
+</kw>
+<arg>${data}[${Keys_No}][SubTaskName]</arg>
+<arg>Complete</arg>
+<arg>${index}</arg>
+<status status="PASS" start="2025-09-01T00:07:48.349024" elapsed="0.187045"/>
+</kw>
+<status status="PASS" start="2025-09-01T00:07:33.588058" elapsed="14.948011"/>
 </branch>
 <branch type="EXCEPT">
-<kw name="Log To Console" library="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
 <arg>Global Search Fail CA : ${Keys_No}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20250829 19:32:52.928" endtime="20250829 19:32:52.928"/>
+<status status="NOT RUN" start="2025-09-01T00:07:48.537069" elapsed="0.000000"/>
 </kw>
-<status status="PASS" starttime="20250829 19:32:52.928" endtime="20250829 19:32:52.928"/>
+<kw name="Write Status To Excel" owner="keyword">
+<arg>${data}[${Keys_No}][SubTaskName]</arg>
+<arg>Fail</arg>
+<arg>${index}</arg>
+<status status="NOT RUN" start="2025-09-01T00:07:48.537069" elapsed="0.000000"/>
+</kw>
+<kw name="Close Context" owner="Browser">
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="NOT RUN" start="2025-09-01T00:07:48.537069" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-09-01T00:07:48.536069" elapsed="0.001000"/>
 </branch>
-<status status="PASS" starttime="20250829 19:32:50.512" endtime="20250829 19:32:52.928"/>
+<status status="PASS" start="2025-09-01T00:07:33.588058" elapsed="14.949011"/>
 </try>
-<status status="PASS" starttime="20250829 19:32:50.512" endtime="20250829 19:32:52.928"/>
+<var name="${index}">0</var>
+<var name="${Keys_No}">TEST17</var>
+<status status="PASS" start="2025-09-01T00:07:33.588058" elapsed="14.949011"/>
 </iter>
-<status status="PASS" starttime="20250829 19:32:50.512" endtime="20250829 19:32:52.928"/>
+<iter>
+<try>
+<branch type="TRY">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-01T00:07:48.538069" level="INFO">${taskname} = DM-20</msg>
+<var>${taskname}</var>
+<arg>${data}[${Keys_No}][TaskName]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-01T00:07:48.538069" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-01T00:07:48.538069" level="INFO">${pathtask} = //*[text()="DM-20"]</msg>
+<var>${pathtask}</var>
+<arg>//*[text()="${taskname}"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-01T00:07:48.538069" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Scroll and Click" owner="keyword">
+<kw name="Wait Until Element Is Visible" owner="play">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-01T00:07:53.873877" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-1.png" target="_blank"&gt;&lt;img src="browser/screenshot/fail-screenshot-1.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<msg time="2025-09-01T00:07:53.873877" level="INFO">See also file:///C:/kmutt/me/gonnaknow/project/jira/Jira-Data/playwright-log.txt for additional details.</msg>
+<msg time="2025-09-01T00:07:53.874874" level="FAIL">Error: locator.waitFor: Error: strict mode violation: locator('//*[text()="DM-20"]') resolved to 2 elements:
+    1) &lt;a target="_self" href="/browse/DM-20" data-testid="business-list.ui.list-view.key-cell.issue-key" class="_1reo15vq _18m915vq _syaz1gjq _1bto1l2s _k48pi7a9 _u5f3utpp _30l31gjq"&gt;DM-20&lt;/a&gt; aka getByTestId('business-list.ui.list-view.base-table.draggable-rows-container.row-wrapper-10040').getByTestId('business-list.ui.list-view.key-cell.issue-key')
+    2) &lt;span class="css-1gd7hga"&gt;DM-20&lt;/span&gt; aka getByTestId('issue.views.issue-base.foundation.breadcrumbs.current-issue.item')
+
+Call log:
+  - waiting for locator('//*[text()="DM-20"]') to be visible
+</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="FAIL" start="2025-09-01T00:07:48.539573" elapsed="5.338295">Error: locator.waitFor: Error: strict mode violation: locator('//*[text()="DM-20"]') resolved to 2 elements:
+    1) &lt;a target="_self" href="/browse/DM-20" data-testid="business-list.ui.list-view.key-cell.issue-key" class="_1reo15vq _18m915vq _syaz1gjq _1bto1l2s _k48pi7a9 _u5f3utpp _30l31gjq"&gt;DM-20&lt;/a&gt; aka getByTestId('business-list.ui.list-view.base-table.draggable-rows-container.row-wrapper-10040').getByTestId('business-list.ui.list-view.key-cell.issue-key')
+    2) &lt;span class="css-1gd7hga"&gt;DM-20&lt;/span&gt; aka getByTestId('issue.views.issue-base.foundation.breadcrumbs.current-issue.item')
+
+Call log:
+  - waiting for locator('//*[text()="DM-20"]') to be visible
+</status>
+</kw>
+<arg>${path}</arg>
+<arg>${time}</arg>
+<status status="FAIL" start="2025-09-01T00:07:48.539573" elapsed="5.338295">Error: locator.waitFor: Error: strict mode violation: locator('//*[text()="DM-20"]') resolved to 2 elements:
+    1) &lt;a target="_self" href="/browse/DM-20" data-testid="business-list.ui.list-view.key-cell.issue-key" class="_1reo15vq _18m915vq _syaz1gjq _1bto1l2s _k48pi7a9 _u5f3utpp _30l31gjq"&gt;DM-20&lt;/a&gt; aka getByTestId('business-list.ui.list-view.base-table.draggable-rows-container.row-wrapper-10040').getByTestId('business-list.ui.list-view.key-cell.issue-key')
+    2) &lt;span class="css-1gd7hga"&gt;DM-20&lt;/span&gt; aka getByTestId('issue.views.issue-base.foundation.breadcrumbs.current-issue.item')
+
+Call log:
+  - waiting for locator('//*[text()="DM-20"]') to be visible
+</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-01T00:07:53.877868" elapsed="0.000000"/>
+</kw>
+<kw name="Scroll To Element" owner="Browser">
+<arg>${path}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>This method waits for actionability checks, then tries to scroll element into view,
+unless it is completely visible.</doc>
+<status status="NOT RUN" start="2025-09-01T00:07:53.878868" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-01T00:07:53.878868" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="play">
+<arg>${path}</arg>
+<status status="NOT RUN" start="2025-09-01T00:07:53.878868" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-01T00:07:53.878868" elapsed="0.000000"/>
+</kw>
+<arg>${pathtask}</arg>
+<status status="FAIL" start="2025-09-01T00:07:48.538069" elapsed="5.340799">Error: locator.waitFor: Error: strict mode violation: locator('//*[text()="DM-20"]') resolved to 2 elements:
+    1) &lt;a target="_self" href="/browse/DM-20" data-testid="business-list.ui.list-view.key-cell.issue-key" class="_1reo15vq _18m915vq _syaz1gjq _1bto1l2s _k48pi7a9 _u5f3utpp _30l31gjq"&gt;DM-20&lt;/a&gt; aka getByTestId('business-list.ui.list-view.base-table.draggable-rows-container.row-wrapper-10040').getByTestId('business-list.ui.list-view.key-cell.issue-key')
+    2) &lt;span class="css-1gd7hga"&gt;DM-20&lt;/span&gt; aka getByTestId('issue.views.issue-base.foundation.breadcrumbs.current-issue.item')
+
+Call log:
+  - waiting for locator('//*[text()="DM-20"]') to be visible
+</status>
+</kw>
+<kw name="Wait Scroll and Click" owner="keyword">
+<arg>${home_section}[addsubtask]</arg>
+<status status="NOT RUN" start="2025-09-01T00:07:53.879879" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Scroll and Input" owner="keyword">
+<arg>${home_section}[namesubtask]</arg>
+<arg>${data}[${Keys_No}][SubTaskName]</arg>
+<status status="NOT RUN" start="2025-09-01T00:07:53.879879" elapsed="0.000000"/>
+</kw>
+<kw name="Wait and Click" owner="keyword">
+<arg>${home_section}[create]</arg>
+<status status="NOT RUN" start="2025-09-01T00:07:53.879879" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${pathtask}</var>
+<arg>//*[text()="${data}[${Keys_No}][SubTaskName]"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-09-01T00:07:53.879879" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Scroll and Click" owner="keyword">
+<arg>${pathtask}</arg>
+<status status="NOT RUN" start="2025-09-01T00:07:53.880869" elapsed="0.000000"/>
+</kw>
+<kw name="Click And Type" owner="play">
+<arg>${home_section}[Assignee]</arg>
+<arg>${data}[${Keys_No}][Assignee]</arg>
+<status status="NOT RUN" start="2025-09-01T00:07:53.880869" elapsed="0.000000"/>
+</kw>
+<kw name="Click And Type Date" owner="play">
+<arg>(//span[@class="_1reo15vq _18m915vq _syaz131l _1bto1l2s _p12f1osq"])[3]</arg>
+<arg>${data}[${Keys_No}][StartDate]</arg>
+<status status="NOT RUN" start="2025-09-01T00:07:53.880869" elapsed="0.000000"/>
+</kw>
+<kw name="Write Status To Excel" owner="keyword">
+<arg>${data}[${Keys_No}][SubTaskName]</arg>
+<arg>Complete</arg>
+<arg>${index}</arg>
+<status status="NOT RUN" start="2025-09-01T00:07:53.880869" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-09-01T00:07:48.538069" elapsed="5.343799">Error: locator.waitFor: Error: strict mode violation: locator('//*[text()="DM-20"]') resolved to 2 elements:
+    1) &lt;a target="_self" href="/browse/DM-20" data-testid="business-list.ui.list-view.key-cell.issue-key" class="_1reo15vq _18m915vq _syaz1gjq _1bto1l2s _k48pi7a9 _u5f3utpp _30l31gjq"&gt;DM-20&lt;/a&gt; aka getByTestId('business-list.ui.list-view.base-table.draggable-rows-container.row-wrapper-10040').getByTestId('business-list.ui.list-view.key-cell.issue-key')
+    2) &lt;span class="css-1gd7hga"&gt;DM-20&lt;/span&gt; aka getByTestId('issue.views.issue-base.foundation.breadcrumbs.current-issue.item')
+
+Call log:
+  - waiting for locator('//*[text()="DM-20"]') to be visible
+</status>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Global Search Fail CA : ${Keys_No}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-01T00:07:53.881868" elapsed="0.000000"/>
+</kw>
+<kw name="Write Status To Excel" owner="keyword">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-01T00:07:53.882875" level="INFO">${index} = 3</msg>
+<var>${index}</var>
+<arg>${index}+2</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-01T00:07:53.882875" elapsed="0.000000"/>
+</kw>
+<kw name="Write To Excel" owner="handledata">
+<arg>${excelname}</arg>
+<arg>${statussheet}</arg>
+<arg>A${index}</arg>
+<arg>${col1}</arg>
+<status status="PASS" start="2025-09-01T00:07:53.882875" elapsed="0.100796"/>
+</kw>
+<kw name="Write To Excel" owner="handledata">
+<arg>${excelname}</arg>
+<arg>${statussheet}</arg>
+<arg>B${index}</arg>
+<arg>${col2}</arg>
+<status status="PASS" start="2025-09-01T00:07:53.983671" elapsed="0.091937"/>
+</kw>
+<arg>${data}[${Keys_No}][SubTaskName]</arg>
+<arg>Fail</arg>
+<arg>${index}</arg>
+<status status="PASS" start="2025-09-01T00:07:53.881868" elapsed="0.194741"/>
+</kw>
+<kw name="Close Context" owner="Browser">
+<msg time="2025-09-01T00:07:54.081612" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2025-09-01T00:07:54.084116" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2025-09-01T00:07:54.087122" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2025-09-01T00:07:54.090121" level="INFO">Returned active context id: CURRENT</msg>
+<msg time="2025-09-01T00:07:54.091122" level="INFO">Switching context to context=b225aa5a-ac57-4a60-838e-8bcc219039eb in CURRENT</msg>
+<msg time="2025-09-01T00:07:54.096121" level="INFO">Successfully changed active context: context=b225aa5a-ac57-4a60-838e-8bcc219039eb</msg>
+<msg time="2025-09-01T00:07:54.459328" level="INFO">Successfully closed Context</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2025-09-01T00:07:54.076609" elapsed="0.382719"/>
+</kw>
+<status status="PASS" start="2025-09-01T00:07:53.881868" elapsed="0.577460"/>
+</branch>
+<status status="PASS" start="2025-09-01T00:07:48.538069" elapsed="5.921259"/>
+</try>
+<var name="${index}">1</var>
+<var name="${Keys_No}">TEST6</var>
+<status status="PASS" start="2025-09-01T00:07:48.538069" elapsed="5.921259"/>
+</iter>
+<iter>
+<try>
+<branch type="TRY">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-01T00:07:54.462390" level="INFO">${taskname} = DM-20</msg>
+<var>${taskname}</var>
+<arg>${data}[${Keys_No}][TaskName]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-01T00:07:54.461393" elapsed="0.000997"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-01T00:07:54.463390" level="INFO">${pathtask} = //*[text()="DM-20"]</msg>
+<var>${pathtask}</var>
+<arg>//*[text()="${taskname}"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-01T00:07:54.462390" elapsed="0.001000"/>
+</kw>
+<kw name="Wait Scroll and Click" owner="keyword">
+<kw name="Wait Until Element Is Visible" owner="play">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-01T00:07:59.470734" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2025-09-01T00:07:59.471727" level="INFO">See also file:///C:/kmutt/me/gonnaknow/project/jira/Jira-Data/playwright-log.txt for additional details.</msg>
+<msg time="2025-09-01T00:07:59.471727" level="FAIL">Error: Could not find active page</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="FAIL" start="2025-09-01T00:07:54.466925" elapsed="5.005804">Error: Could not find active page</status>
+</kw>
+<arg>${path}</arg>
+<arg>${time}</arg>
+<status status="FAIL" start="2025-09-01T00:07:54.465916" elapsed="5.006813">Error: Could not find active page</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-01T00:07:59.472729" elapsed="0.000000"/>
+</kw>
+<kw name="Scroll To Element" owner="Browser">
+<arg>${path}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>This method waits for actionability checks, then tries to scroll element into view,
+unless it is completely visible.</doc>
+<status status="NOT RUN" start="2025-09-01T00:07:59.472729" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-01T00:07:59.472729" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="play">
+<arg>${path}</arg>
+<status status="NOT RUN" start="2025-09-01T00:07:59.473724" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-01T00:07:59.473724" elapsed="0.000000"/>
+</kw>
+<arg>${pathtask}</arg>
+<status status="FAIL" start="2025-09-01T00:07:54.464882" elapsed="5.008842">Error: Could not find active page</status>
+</kw>
+<kw name="Wait Scroll and Click" owner="keyword">
+<arg>${home_section}[addsubtask]</arg>
+<status status="NOT RUN" start="2025-09-01T00:07:59.473724" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Scroll and Input" owner="keyword">
+<arg>${home_section}[namesubtask]</arg>
+<arg>${data}[${Keys_No}][SubTaskName]</arg>
+<status status="NOT RUN" start="2025-09-01T00:07:59.473724" elapsed="0.000000"/>
+</kw>
+<kw name="Wait and Click" owner="keyword">
+<arg>${home_section}[create]</arg>
+<status status="NOT RUN" start="2025-09-01T00:07:59.474729" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${pathtask}</var>
+<arg>//*[text()="${data}[${Keys_No}][SubTaskName]"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-09-01T00:07:59.474729" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Scroll and Click" owner="keyword">
+<arg>${pathtask}</arg>
+<status status="NOT RUN" start="2025-09-01T00:07:59.474729" elapsed="0.000000"/>
+</kw>
+<kw name="Click And Type" owner="play">
+<arg>${home_section}[Assignee]</arg>
+<arg>${data}[${Keys_No}][Assignee]</arg>
+<status status="NOT RUN" start="2025-09-01T00:07:59.474729" elapsed="0.000000"/>
+</kw>
+<kw name="Click And Type Date" owner="play">
+<arg>(//span[@class="_1reo15vq _18m915vq _syaz131l _1bto1l2s _p12f1osq"])[3]</arg>
+<arg>${data}[${Keys_No}][StartDate]</arg>
+<status status="NOT RUN" start="2025-09-01T00:07:59.474729" elapsed="0.000000"/>
+</kw>
+<kw name="Write Status To Excel" owner="keyword">
+<arg>${data}[${Keys_No}][SubTaskName]</arg>
+<arg>Complete</arg>
+<arg>${index}</arg>
+<status status="NOT RUN" start="2025-09-01T00:07:59.475717" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-09-01T00:07:54.461393" elapsed="5.014324">Error: Could not find active page</status>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Global Search Fail CA : ${Keys_No}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-01T00:07:59.475717" elapsed="0.000000"/>
+</kw>
+<kw name="Write Status To Excel" owner="keyword">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-01T00:07:59.476721" level="INFO">${index} = 4</msg>
+<var>${index}</var>
+<arg>${index}+2</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-01T00:07:59.476721" elapsed="0.000000"/>
+</kw>
+<kw name="Write To Excel" owner="handledata">
+<arg>${excelname}</arg>
+<arg>${statussheet}</arg>
+<arg>A${index}</arg>
+<arg>${col1}</arg>
+<status status="PASS" start="2025-09-01T00:07:59.476721" elapsed="0.141898"/>
+</kw>
+<kw name="Write To Excel" owner="handledata">
+<arg>${excelname}</arg>
+<arg>${statussheet}</arg>
+<arg>B${index}</arg>
+<arg>${col2}</arg>
+<status status="PASS" start="2025-09-01T00:07:59.618619" elapsed="0.123660"/>
+</kw>
+<arg>${data}[${Keys_No}][SubTaskName]</arg>
+<arg>Fail</arg>
+<arg>${index}</arg>
+<status status="PASS" start="2025-09-01T00:07:59.476721" elapsed="0.265558"/>
+</kw>
+<kw name="Close Context" owner="Browser">
+<msg time="2025-09-01T00:07:59.745280" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2025-09-01T00:07:59.746280" level="INFO">Returned active browser id. CURRENT</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2025-09-01T00:07:59.742279" elapsed="0.004001"/>
+</kw>
+<status status="PASS" start="2025-09-01T00:07:59.475717" elapsed="0.270563"/>
+</branch>
+<status status="PASS" start="2025-09-01T00:07:54.460394" elapsed="5.285886"/>
+</try>
+<var name="${index}">2</var>
+<var name="${Keys_No}">TEST7</var>
+<status status="PASS" start="2025-09-01T00:07:54.460394" elapsed="5.285886"/>
+</iter>
+<iter>
+<try>
+<branch type="TRY">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-01T00:07:59.747280" level="INFO">${taskname} = DM-20</msg>
+<var>${taskname}</var>
+<arg>${data}[${Keys_No}][TaskName]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-01T00:07:59.747280" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-01T00:07:59.748280" level="INFO">${pathtask} = //*[text()="DM-20"]</msg>
+<var>${pathtask}</var>
+<arg>//*[text()="${taskname}"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-01T00:07:59.748280" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Scroll and Click" owner="keyword">
+<kw name="Wait Until Element Is Visible" owner="play">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-01T00:08:04.751272" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2025-09-01T00:08:04.751272" level="INFO">See also file:///C:/kmutt/me/gonnaknow/project/jira/Jira-Data/playwright-log.txt for additional details.</msg>
+<msg time="2025-09-01T00:08:04.751272" level="FAIL">Error: Could not find active page</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="FAIL" start="2025-09-01T00:07:59.749282" elapsed="5.002989">Error: Could not find active page</status>
+</kw>
+<arg>${path}</arg>
+<arg>${time}</arg>
+<status status="FAIL" start="2025-09-01T00:07:59.748280" elapsed="5.003991">Error: Could not find active page</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:04.753271" elapsed="0.000000"/>
+</kw>
+<kw name="Scroll To Element" owner="Browser">
+<arg>${path}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>This method waits for actionability checks, then tries to scroll element into view,
+unless it is completely visible.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:04.753271" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:04.753271" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="play">
+<arg>${path}</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:04.753271" elapsed="0.000998"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:04.754269" elapsed="0.000000"/>
+</kw>
+<arg>${pathtask}</arg>
+<status status="FAIL" start="2025-09-01T00:07:59.748280" elapsed="5.005989">Error: Could not find active page</status>
+</kw>
+<kw name="Wait Scroll and Click" owner="keyword">
+<arg>${home_section}[addsubtask]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:04.754775" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Scroll and Input" owner="keyword">
+<arg>${home_section}[namesubtask]</arg>
+<arg>${data}[${Keys_No}][SubTaskName]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:04.754775" elapsed="0.000000"/>
+</kw>
+<kw name="Wait and Click" owner="keyword">
+<arg>${home_section}[create]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:04.754775" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${pathtask}</var>
+<arg>//*[text()="${data}[${Keys_No}][SubTaskName]"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:04.754775" elapsed="0.001009"/>
+</kw>
+<kw name="Wait Scroll and Click" owner="keyword">
+<arg>${pathtask}</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:04.755784" elapsed="0.000000"/>
+</kw>
+<kw name="Click And Type" owner="play">
+<arg>${home_section}[Assignee]</arg>
+<arg>${data}[${Keys_No}][Assignee]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:04.755784" elapsed="0.000000"/>
+</kw>
+<kw name="Click And Type Date" owner="play">
+<arg>(//span[@class="_1reo15vq _18m915vq _syaz131l _1bto1l2s _p12f1osq"])[3]</arg>
+<arg>${data}[${Keys_No}][StartDate]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:04.755784" elapsed="0.000000"/>
+</kw>
+<kw name="Write Status To Excel" owner="keyword">
+<arg>${data}[${Keys_No}][SubTaskName]</arg>
+<arg>Complete</arg>
+<arg>${index}</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:04.756781" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-09-01T00:07:59.747280" elapsed="5.009501">Error: Could not find active page</status>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Global Search Fail CA : ${Keys_No}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-01T00:08:04.756781" elapsed="0.001001"/>
+</kw>
+<kw name="Write Status To Excel" owner="keyword">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-01T00:08:04.758787" level="INFO">${index} = 5</msg>
+<var>${index}</var>
+<arg>${index}+2</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-01T00:08:04.757782" elapsed="0.001005"/>
+</kw>
+<kw name="Write To Excel" owner="handledata">
+<arg>${excelname}</arg>
+<arg>${statussheet}</arg>
+<arg>A${index}</arg>
+<arg>${col1}</arg>
+<status status="PASS" start="2025-09-01T00:08:04.758787" elapsed="0.099975"/>
+</kw>
+<kw name="Write To Excel" owner="handledata">
+<arg>${excelname}</arg>
+<arg>${statussheet}</arg>
+<arg>B${index}</arg>
+<arg>${col2}</arg>
+<status status="PASS" start="2025-09-01T00:08:04.858762" elapsed="0.089393"/>
+</kw>
+<arg>${data}[${Keys_No}][SubTaskName]</arg>
+<arg>Fail</arg>
+<arg>${index}</arg>
+<status status="PASS" start="2025-09-01T00:08:04.757782" elapsed="0.190373"/>
+</kw>
+<kw name="Close Context" owner="Browser">
+<msg time="2025-09-01T00:08:04.951157" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2025-09-01T00:08:04.951157" level="INFO">Returned active browser id. CURRENT</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2025-09-01T00:08:04.949155" elapsed="0.003000"/>
+</kw>
+<status status="PASS" start="2025-09-01T00:08:04.756781" elapsed="0.195374"/>
+</branch>
+<status status="PASS" start="2025-09-01T00:07:59.747280" elapsed="5.204875"/>
+</try>
+<var name="${index}">3</var>
+<var name="${Keys_No}">TEST8</var>
+<status status="PASS" start="2025-09-01T00:07:59.747280" elapsed="5.204875"/>
+</iter>
+<iter>
+<try>
+<branch type="TRY">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-01T00:08:04.953161" level="INFO">${taskname} = DM-20</msg>
+<var>${taskname}</var>
+<arg>${data}[${Keys_No}][TaskName]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-01T00:08:04.952155" elapsed="0.001006"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-01T00:08:04.953161" level="INFO">${pathtask} = //*[text()="DM-20"]</msg>
+<var>${pathtask}</var>
+<arg>//*[text()="${taskname}"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-01T00:08:04.953161" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Scroll and Click" owner="keyword">
+<kw name="Wait Until Element Is Visible" owner="play">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-01T00:08:09.961297" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2025-09-01T00:08:09.961297" level="INFO">See also file:///C:/kmutt/me/gonnaknow/project/jira/Jira-Data/playwright-log.txt for additional details.</msg>
+<msg time="2025-09-01T00:08:09.961297" level="FAIL">Error: Could not find active page</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="FAIL" start="2025-09-01T00:08:04.954163" elapsed="5.009134">Error: Could not find active page</status>
+</kw>
+<arg>${path}</arg>
+<arg>${time}</arg>
+<status status="FAIL" start="2025-09-01T00:08:04.953161" elapsed="5.010136">Error: Could not find active page</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:09.964301" elapsed="0.000000"/>
+</kw>
+<kw name="Scroll To Element" owner="Browser">
+<arg>${path}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>This method waits for actionability checks, then tries to scroll element into view,
+unless it is completely visible.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:09.964301" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:09.964301" elapsed="0.000997"/>
+</kw>
+<kw name="Click Element" owner="play">
+<arg>${path}</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:09.965298" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:09.965298" elapsed="0.000000"/>
+</kw>
+<arg>${pathtask}</arg>
+<status status="FAIL" start="2025-09-01T00:08:04.953161" elapsed="5.012137">Error: Could not find active page</status>
+</kw>
+<kw name="Wait Scroll and Click" owner="keyword">
+<arg>${home_section}[addsubtask]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:09.966297" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Scroll and Input" owner="keyword">
+<arg>${home_section}[namesubtask]</arg>
+<arg>${data}[${Keys_No}][SubTaskName]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:09.966297" elapsed="0.000000"/>
+</kw>
+<kw name="Wait and Click" owner="keyword">
+<arg>${home_section}[create]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:09.966297" elapsed="0.001000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${pathtask}</var>
+<arg>//*[text()="${data}[${Keys_No}][SubTaskName]"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:09.967297" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Scroll and Click" owner="keyword">
+<arg>${pathtask}</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:09.967297" elapsed="0.000000"/>
+</kw>
+<kw name="Click And Type" owner="play">
+<arg>${home_section}[Assignee]</arg>
+<arg>${data}[${Keys_No}][Assignee]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:09.967297" elapsed="0.001002"/>
+</kw>
+<kw name="Click And Type Date" owner="play">
+<arg>(//span[@class="_1reo15vq _18m915vq _syaz131l _1bto1l2s _p12f1osq"])[3]</arg>
+<arg>${data}[${Keys_No}][StartDate]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:09.968299" elapsed="0.000000"/>
+</kw>
+<kw name="Write Status To Excel" owner="keyword">
+<arg>${data}[${Keys_No}][SubTaskName]</arg>
+<arg>Complete</arg>
+<arg>${index}</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:09.968299" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-09-01T00:08:04.952155" elapsed="5.016144">Error: Could not find active page</status>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Global Search Fail CA : ${Keys_No}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-01T00:08:09.968299" elapsed="0.002362"/>
+</kw>
+<kw name="Write Status To Excel" owner="keyword">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-01T00:08:09.972668" level="INFO">${index} = 6</msg>
+<var>${index}</var>
+<arg>${index}+2</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-01T00:08:09.971667" elapsed="0.001001"/>
+</kw>
+<kw name="Write To Excel" owner="handledata">
+<arg>${excelname}</arg>
+<arg>${statussheet}</arg>
+<arg>A${index}</arg>
+<arg>${col1}</arg>
+<status status="PASS" start="2025-09-01T00:08:09.972668" elapsed="0.131909"/>
+</kw>
+<kw name="Write To Excel" owner="handledata">
+<arg>${excelname}</arg>
+<arg>${statussheet}</arg>
+<arg>B${index}</arg>
+<arg>${col2}</arg>
+<status status="PASS" start="2025-09-01T00:08:10.104577" elapsed="0.086616"/>
+</kw>
+<arg>${data}[${Keys_No}][SubTaskName]</arg>
+<arg>Fail</arg>
+<arg>${index}</arg>
+<status status="PASS" start="2025-09-01T00:08:09.970661" elapsed="0.220532"/>
+</kw>
+<kw name="Close Context" owner="Browser">
+<msg time="2025-09-01T00:08:10.194138" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2025-09-01T00:08:10.195130" level="INFO">Returned active browser id. CURRENT</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2025-09-01T00:08:10.191193" elapsed="0.003937"/>
+</kw>
+<status status="PASS" start="2025-09-01T00:08:09.968299" elapsed="0.226831"/>
+</branch>
+<status status="PASS" start="2025-09-01T00:08:04.952155" elapsed="5.242975"/>
+</try>
+<var name="${index}">4</var>
+<var name="${Keys_No}">TEST9</var>
+<status status="PASS" start="2025-09-01T00:08:04.952155" elapsed="5.242975"/>
+</iter>
+<iter>
+<try>
+<branch type="TRY">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-01T00:08:10.196129" level="INFO">${taskname} = DM-20</msg>
+<var>${taskname}</var>
+<arg>${data}[${Keys_No}][TaskName]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-01T00:08:10.196129" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-01T00:08:10.196129" level="INFO">${pathtask} = //*[text()="DM-20"]</msg>
+<var>${pathtask}</var>
+<arg>//*[text()="${taskname}"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-01T00:08:10.196129" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Scroll and Click" owner="keyword">
+<kw name="Wait Until Element Is Visible" owner="play">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-01T00:08:15.191513" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2025-09-01T00:08:15.191513" level="INFO">See also file:///C:/kmutt/me/gonnaknow/project/jira/Jira-Data/playwright-log.txt for additional details.</msg>
+<msg time="2025-09-01T00:08:15.191513" level="FAIL">Error: Could not find active page</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="FAIL" start="2025-09-01T00:08:10.197129" elapsed="4.995444">Error: Could not find active page</status>
+</kw>
+<arg>${path}</arg>
+<arg>${time}</arg>
+<status status="FAIL" start="2025-09-01T00:08:10.197129" elapsed="4.996450">Error: Could not find active page</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:15.193579" elapsed="0.000000"/>
+</kw>
+<kw name="Scroll To Element" owner="Browser">
+<arg>${path}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>This method waits for actionability checks, then tries to scroll element into view,
+unless it is completely visible.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:15.193579" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:15.193579" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="play">
+<arg>${path}</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:15.194578" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:15.194578" elapsed="0.000000"/>
+</kw>
+<arg>${pathtask}</arg>
+<status status="FAIL" start="2025-09-01T00:08:10.196129" elapsed="4.998449">Error: Could not find active page</status>
+</kw>
+<kw name="Wait Scroll and Click" owner="keyword">
+<arg>${home_section}[addsubtask]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:15.194578" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Scroll and Input" owner="keyword">
+<arg>${home_section}[namesubtask]</arg>
+<arg>${data}[${Keys_No}][SubTaskName]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:15.195578" elapsed="0.000000"/>
+</kw>
+<kw name="Wait and Click" owner="keyword">
+<arg>${home_section}[create]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:15.195578" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${pathtask}</var>
+<arg>//*[text()="${data}[${Keys_No}][SubTaskName]"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:15.195578" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Scroll and Click" owner="keyword">
+<arg>${pathtask}</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:15.195578" elapsed="0.000000"/>
+</kw>
+<kw name="Click And Type" owner="play">
+<arg>${home_section}[Assignee]</arg>
+<arg>${data}[${Keys_No}][Assignee]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:15.196578" elapsed="0.000000"/>
+</kw>
+<kw name="Click And Type Date" owner="play">
+<arg>(//span[@class="_1reo15vq _18m915vq _syaz131l _1bto1l2s _p12f1osq"])[3]</arg>
+<arg>${data}[${Keys_No}][StartDate]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:15.196578" elapsed="0.000000"/>
+</kw>
+<kw name="Write Status To Excel" owner="keyword">
+<arg>${data}[${Keys_No}][SubTaskName]</arg>
+<arg>Complete</arg>
+<arg>${index}</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:15.196578" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-09-01T00:08:10.195130" elapsed="5.001448">Error: Could not find active page</status>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Global Search Fail CA : ${Keys_No}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-01T00:08:15.196578" elapsed="0.001421"/>
+</kw>
+<kw name="Write Status To Excel" owner="keyword">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-01T00:08:15.200006" level="INFO">${index} = 7</msg>
+<var>${index}</var>
+<arg>${index}+2</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-01T00:08:15.199006" elapsed="0.001000"/>
+</kw>
+<kw name="Write To Excel" owner="handledata">
+<arg>${excelname}</arg>
+<arg>${statussheet}</arg>
+<arg>A${index}</arg>
+<arg>${col1}</arg>
+<status status="PASS" start="2025-09-01T00:08:15.200006" elapsed="0.110439"/>
+</kw>
+<kw name="Write To Excel" owner="handledata">
+<arg>${excelname}</arg>
+<arg>${statussheet}</arg>
+<arg>B${index}</arg>
+<arg>${col2}</arg>
+<status status="PASS" start="2025-09-01T00:08:15.310445" elapsed="0.127751"/>
+</kw>
+<arg>${data}[${Keys_No}][SubTaskName]</arg>
+<arg>Fail</arg>
+<arg>${index}</arg>
+<status status="PASS" start="2025-09-01T00:08:15.197999" elapsed="0.240197"/>
+</kw>
+<kw name="Close Context" owner="Browser">
+<msg time="2025-09-01T00:08:15.441181" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2025-09-01T00:08:15.442179" level="INFO">Returned active browser id. CURRENT</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2025-09-01T00:08:15.439185" elapsed="0.002994"/>
+</kw>
+<status status="PASS" start="2025-09-01T00:08:15.196578" elapsed="0.245601"/>
+</branch>
+<status status="PASS" start="2025-09-01T00:08:10.195130" elapsed="5.247049"/>
+</try>
+<var name="${index}">5</var>
+<var name="${Keys_No}">TEST10</var>
+<status status="PASS" start="2025-09-01T00:08:10.195130" elapsed="5.247049"/>
+</iter>
+<iter>
+<try>
+<branch type="TRY">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-01T00:08:15.443181" level="INFO">${taskname} = DM-20</msg>
+<var>${taskname}</var>
+<arg>${data}[${Keys_No}][TaskName]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-01T00:08:15.443181" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-01T00:08:15.444183" level="INFO">${pathtask} = //*[text()="DM-20"]</msg>
+<var>${pathtask}</var>
+<arg>//*[text()="${taskname}"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-01T00:08:15.443181" elapsed="0.001002"/>
+</kw>
+<kw name="Wait Scroll and Click" owner="keyword">
+<kw name="Wait Until Element Is Visible" owner="play">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-01T00:08:20.440089" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2025-09-01T00:08:20.440089" level="INFO">See also file:///C:/kmutt/me/gonnaknow/project/jira/Jira-Data/playwright-log.txt for additional details.</msg>
+<msg time="2025-09-01T00:08:20.441078" level="FAIL">Error: Could not find active page</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="FAIL" start="2025-09-01T00:08:15.444183" elapsed="4.997895">Error: Could not find active page</status>
+</kw>
+<arg>${path}</arg>
+<arg>${time}</arg>
+<status status="FAIL" start="2025-09-01T00:08:15.444183" elapsed="4.997895">Error: Could not find active page</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:20.442078" elapsed="0.000000"/>
+</kw>
+<kw name="Scroll To Element" owner="Browser">
+<arg>${path}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>This method waits for actionability checks, then tries to scroll element into view,
+unless it is completely visible.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:20.442078" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:20.442078" elapsed="0.001001"/>
+</kw>
+<kw name="Click Element" owner="play">
+<arg>${path}</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:20.443079" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:20.443079" elapsed="0.000000"/>
+</kw>
+<arg>${pathtask}</arg>
+<status status="FAIL" start="2025-09-01T00:08:15.444183" elapsed="4.998896">Error: Could not find active page</status>
+</kw>
+<kw name="Wait Scroll and Click" owner="keyword">
+<arg>${home_section}[addsubtask]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:20.443079" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Scroll and Input" owner="keyword">
+<arg>${home_section}[namesubtask]</arg>
+<arg>${data}[${Keys_No}][SubTaskName]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:20.443079" elapsed="0.001008"/>
+</kw>
+<kw name="Wait and Click" owner="keyword">
+<arg>${home_section}[create]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:20.444087" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${pathtask}</var>
+<arg>//*[text()="${data}[${Keys_No}][SubTaskName]"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:20.444087" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Scroll and Click" owner="keyword">
+<arg>${pathtask}</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:20.444087" elapsed="0.000000"/>
+</kw>
+<kw name="Click And Type" owner="play">
+<arg>${home_section}[Assignee]</arg>
+<arg>${data}[${Keys_No}][Assignee]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:20.444087" elapsed="0.000000"/>
+</kw>
+<kw name="Click And Type Date" owner="play">
+<arg>(//span[@class="_1reo15vq _18m915vq _syaz131l _1bto1l2s _p12f1osq"])[3]</arg>
+<arg>${data}[${Keys_No}][StartDate]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:20.444087" elapsed="0.001010"/>
+</kw>
+<kw name="Write Status To Excel" owner="keyword">
+<arg>${data}[${Keys_No}][SubTaskName]</arg>
+<arg>Complete</arg>
+<arg>${index}</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:20.445097" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-09-01T00:08:15.443181" elapsed="5.001916">Error: Could not find active page</status>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Global Search Fail CA : ${Keys_No}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-01T00:08:20.445097" elapsed="0.000981"/>
+</kw>
+<kw name="Write Status To Excel" owner="keyword">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-01T00:08:20.447078" level="INFO">${index} = 8</msg>
+<var>${index}</var>
+<arg>${index}+2</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-01T00:08:20.446078" elapsed="0.001000"/>
+</kw>
+<kw name="Write To Excel" owner="handledata">
+<arg>${excelname}</arg>
+<arg>${statussheet}</arg>
+<arg>A${index}</arg>
+<arg>${col1}</arg>
+<status status="PASS" start="2025-09-01T00:08:20.447078" elapsed="0.101988"/>
+</kw>
+<kw name="Write To Excel" owner="handledata">
+<arg>${excelname}</arg>
+<arg>${statussheet}</arg>
+<arg>B${index}</arg>
+<arg>${col2}</arg>
+<status status="PASS" start="2025-09-01T00:08:20.549066" elapsed="0.088137"/>
+</kw>
+<arg>${data}[${Keys_No}][SubTaskName]</arg>
+<arg>Fail</arg>
+<arg>${index}</arg>
+<status status="PASS" start="2025-09-01T00:08:20.446078" elapsed="0.191125"/>
+</kw>
+<kw name="Close Context" owner="Browser">
+<msg time="2025-09-01T00:08:20.640203" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2025-09-01T00:08:20.641202" level="INFO">Returned active browser id. CURRENT</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2025-09-01T00:08:20.637203" elapsed="0.003999"/>
+</kw>
+<status status="PASS" start="2025-09-01T00:08:20.445097" elapsed="0.196105"/>
+</branch>
+<status status="PASS" start="2025-09-01T00:08:15.443181" elapsed="5.198021"/>
+</try>
+<var name="${index}">6</var>
+<var name="${Keys_No}">TEST11</var>
+<status status="PASS" start="2025-09-01T00:08:15.443181" elapsed="5.198021"/>
+</iter>
+<iter>
+<try>
+<branch type="TRY">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-01T00:08:20.642203" level="INFO">${taskname} = DM-20</msg>
+<var>${taskname}</var>
+<arg>${data}[${Keys_No}][TaskName]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-01T00:08:20.642203" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-01T00:08:20.642203" level="INFO">${pathtask} = //*[text()="DM-20"]</msg>
+<var>${pathtask}</var>
+<arg>//*[text()="${taskname}"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-01T00:08:20.642203" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Scroll and Click" owner="keyword">
+<kw name="Wait Until Element Is Visible" owner="play">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-01T00:08:25.643031" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2025-09-01T00:08:25.643031" level="INFO">See also file:///C:/kmutt/me/gonnaknow/project/jira/Jira-Data/playwright-log.txt for additional details.</msg>
+<msg time="2025-09-01T00:08:25.643031" level="FAIL">Error: Could not find active page</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="FAIL" start="2025-09-01T00:08:20.644204" elapsed="4.999829">Error: Could not find active page</status>
+</kw>
+<arg>${path}</arg>
+<arg>${time}</arg>
+<status status="FAIL" start="2025-09-01T00:08:20.643205" elapsed="5.000828">Error: Could not find active page</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:25.644033" elapsed="0.000999"/>
+</kw>
+<kw name="Scroll To Element" owner="Browser">
+<arg>${path}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>This method waits for actionability checks, then tries to scroll element into view,
+unless it is completely visible.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:25.645032" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:25.645032" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="play">
+<arg>${path}</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:25.646032" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:25.646032" elapsed="0.000000"/>
+</kw>
+<arg>${pathtask}</arg>
+<status status="FAIL" start="2025-09-01T00:08:20.643205" elapsed="5.002827">Error: Could not find active page</status>
+</kw>
+<kw name="Wait Scroll and Click" owner="keyword">
+<arg>${home_section}[addsubtask]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:25.646032" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Scroll and Input" owner="keyword">
+<arg>${home_section}[namesubtask]</arg>
+<arg>${data}[${Keys_No}][SubTaskName]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:25.646032" elapsed="0.001001"/>
+</kw>
+<kw name="Wait and Click" owner="keyword">
+<arg>${home_section}[create]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:25.647033" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${pathtask}</var>
+<arg>//*[text()="${data}[${Keys_No}][SubTaskName]"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:25.647033" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Scroll and Click" owner="keyword">
+<arg>${pathtask}</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:25.647033" elapsed="0.000000"/>
+</kw>
+<kw name="Click And Type" owner="play">
+<arg>${home_section}[Assignee]</arg>
+<arg>${data}[${Keys_No}][Assignee]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:25.647033" elapsed="0.000000"/>
+</kw>
+<kw name="Click And Type Date" owner="play">
+<arg>(//span[@class="_1reo15vq _18m915vq _syaz131l _1bto1l2s _p12f1osq"])[3]</arg>
+<arg>${data}[${Keys_No}][StartDate]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:25.648031" elapsed="0.000000"/>
+</kw>
+<kw name="Write Status To Excel" owner="keyword">
+<arg>${data}[${Keys_No}][SubTaskName]</arg>
+<arg>Complete</arg>
+<arg>${index}</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:25.648031" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-09-01T00:08:20.641202" elapsed="5.006829">Error: Could not find active page</status>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Global Search Fail CA : ${Keys_No}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-01T00:08:25.648031" elapsed="0.001015"/>
+</kw>
+<kw name="Write Status To Excel" owner="keyword">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-01T00:08:25.650035" level="INFO">${index} = 9</msg>
+<var>${index}</var>
+<arg>${index}+2</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-01T00:08:25.649046" elapsed="0.000989"/>
+</kw>
+<kw name="Write To Excel" owner="handledata">
+<arg>${excelname}</arg>
+<arg>${statussheet}</arg>
+<arg>A${index}</arg>
+<arg>${col1}</arg>
+<status status="PASS" start="2025-09-01T00:08:25.650035" elapsed="0.102395"/>
+</kw>
+<kw name="Write To Excel" owner="handledata">
+<arg>${excelname}</arg>
+<arg>${statussheet}</arg>
+<arg>B${index}</arg>
+<arg>${col2}</arg>
+<status status="PASS" start="2025-09-01T00:08:25.752430" elapsed="0.103069"/>
+</kw>
+<arg>${data}[${Keys_No}][SubTaskName]</arg>
+<arg>Fail</arg>
+<arg>${index}</arg>
+<status status="PASS" start="2025-09-01T00:08:25.649046" elapsed="0.206453"/>
+</kw>
+<kw name="Close Context" owner="Browser">
+<msg time="2025-09-01T00:08:25.858503" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2025-09-01T00:08:25.860501" level="INFO">Returned active browser id. CURRENT</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2025-09-01T00:08:25.855499" elapsed="0.006002"/>
+</kw>
+<status status="PASS" start="2025-09-01T00:08:25.648031" elapsed="0.213470"/>
+</branch>
+<status status="PASS" start="2025-09-01T00:08:20.641202" elapsed="5.220299"/>
+</try>
+<var name="${index}">7</var>
+<var name="${Keys_No}">TEST12</var>
+<status status="PASS" start="2025-09-01T00:08:20.641202" elapsed="5.220299"/>
+</iter>
+<iter>
+<try>
+<branch type="TRY">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-01T00:08:25.862502" level="INFO">${taskname} = DM-20</msg>
+<var>${taskname}</var>
+<arg>${data}[${Keys_No}][TaskName]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-01T00:08:25.861501" elapsed="0.001001"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-01T00:08:25.862502" level="INFO">${pathtask} = //*[text()="DM-20"]</msg>
+<var>${pathtask}</var>
+<arg>//*[text()="${taskname}"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-01T00:08:25.862502" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Scroll and Click" owner="keyword">
+<kw name="Wait Until Element Is Visible" owner="play">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-01T00:08:30.862056" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2025-09-01T00:08:30.862056" level="INFO">See also file:///C:/kmutt/me/gonnaknow/project/jira/Jira-Data/playwright-log.txt for additional details.</msg>
+<msg time="2025-09-01T00:08:30.863068" level="FAIL">Error: Could not find active page</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="FAIL" start="2025-09-01T00:08:25.863502" elapsed="4.999566">Error: Could not find active page</status>
+</kw>
+<arg>${path}</arg>
+<arg>${time}</arg>
+<status status="FAIL" start="2025-09-01T00:08:25.863502" elapsed="5.000554">Error: Could not find active page</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:30.864056" elapsed="0.000000"/>
+</kw>
+<kw name="Scroll To Element" owner="Browser">
+<arg>${path}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>This method waits for actionability checks, then tries to scroll element into view,
+unless it is completely visible.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:30.864056" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:30.864056" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="play">
+<arg>${path}</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:30.865056" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:30.865056" elapsed="0.000000"/>
+</kw>
+<arg>${pathtask}</arg>
+<status status="FAIL" start="2025-09-01T00:08:25.862502" elapsed="5.002554">Error: Could not find active page</status>
+</kw>
+<kw name="Wait Scroll and Click" owner="keyword">
+<arg>${home_section}[addsubtask]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:30.865056" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Scroll and Input" owner="keyword">
+<arg>${home_section}[namesubtask]</arg>
+<arg>${data}[${Keys_No}][SubTaskName]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:30.865056" elapsed="0.001004"/>
+</kw>
+<kw name="Wait and Click" owner="keyword">
+<arg>${home_section}[create]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:30.866060" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${pathtask}</var>
+<arg>//*[text()="${data}[${Keys_No}][SubTaskName]"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:30.866060" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Scroll and Click" owner="keyword">
+<arg>${pathtask}</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:30.866060" elapsed="0.000000"/>
+</kw>
+<kw name="Click And Type" owner="play">
+<arg>${home_section}[Assignee]</arg>
+<arg>${data}[${Keys_No}][Assignee]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:30.866060" elapsed="0.000000"/>
+</kw>
+<kw name="Click And Type Date" owner="play">
+<arg>(//span[@class="_1reo15vq _18m915vq _syaz131l _1bto1l2s _p12f1osq"])[3]</arg>
+<arg>${data}[${Keys_No}][StartDate]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:30.866060" elapsed="0.000995"/>
+</kw>
+<kw name="Write Status To Excel" owner="keyword">
+<arg>${data}[${Keys_No}][SubTaskName]</arg>
+<arg>Complete</arg>
+<arg>${index}</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:30.867055" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-09-01T00:08:25.861501" elapsed="5.005554">Error: Could not find active page</status>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Global Search Fail CA : ${Keys_No}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-01T00:08:30.867055" elapsed="0.000000"/>
+</kw>
+<kw name="Write Status To Excel" owner="keyword">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-01T00:08:30.868056" level="INFO">${index} = 10</msg>
+<var>${index}</var>
+<arg>${index}+2</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-01T00:08:30.868056" elapsed="0.000000"/>
+</kw>
+<kw name="Write To Excel" owner="handledata">
+<arg>${excelname}</arg>
+<arg>${statussheet}</arg>
+<arg>A${index}</arg>
+<arg>${col1}</arg>
+<status status="PASS" start="2025-09-01T00:08:30.868056" elapsed="0.103232"/>
+</kw>
+<kw name="Write To Excel" owner="handledata">
+<arg>${excelname}</arg>
+<arg>${statussheet}</arg>
+<arg>B${index}</arg>
+<arg>${col2}</arg>
+<status status="PASS" start="2025-09-01T00:08:30.972295" elapsed="0.083438"/>
+</kw>
+<arg>${data}[${Keys_No}][SubTaskName]</arg>
+<arg>Fail</arg>
+<arg>${index}</arg>
+<status status="PASS" start="2025-09-01T00:08:30.868056" elapsed="0.188681"/>
+</kw>
+<kw name="Close Context" owner="Browser">
+<msg time="2025-09-01T00:08:31.058808" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2025-09-01T00:08:31.059738" level="INFO">Returned active browser id. CURRENT</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2025-09-01T00:08:31.056737" elapsed="0.003001"/>
+</kw>
+<status status="PASS" start="2025-09-01T00:08:30.867055" elapsed="0.192683"/>
+</branch>
+<status status="PASS" start="2025-09-01T00:08:25.861501" elapsed="5.198237"/>
+</try>
+<var name="${index}">8</var>
+<var name="${Keys_No}">TEST13</var>
+<status status="PASS" start="2025-09-01T00:08:25.861501" elapsed="5.198237"/>
+</iter>
+<iter>
+<try>
+<branch type="TRY">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-01T00:08:31.060743" level="INFO">${taskname} = DM-20</msg>
+<var>${taskname}</var>
+<arg>${data}[${Keys_No}][TaskName]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-01T00:08:31.060743" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-01T00:08:31.061742" level="INFO">${pathtask} = //*[text()="DM-20"]</msg>
+<var>${pathtask}</var>
+<arg>//*[text()="${taskname}"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-01T00:08:31.060743" elapsed="0.000999"/>
+</kw>
+<kw name="Wait Scroll and Click" owner="keyword">
+<kw name="Wait Until Element Is Visible" owner="play">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-01T00:08:36.139087" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2025-09-01T00:08:36.140465" level="INFO">See also file:///C:/kmutt/me/gonnaknow/project/jira/Jira-Data/playwright-log.txt for additional details.</msg>
+<msg time="2025-09-01T00:08:36.140465" level="FAIL">Error: Could not find active page</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="FAIL" start="2025-09-01T00:08:31.061742" elapsed="5.080227">Error: Could not find active page</status>
+</kw>
+<arg>${path}</arg>
+<arg>${time}</arg>
+<status status="FAIL" start="2025-09-01T00:08:31.061742" elapsed="5.080227">Error: Could not find active page</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:36.141969" elapsed="0.001469"/>
+</kw>
+<kw name="Scroll To Element" owner="Browser">
+<arg>${path}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>This method waits for actionability checks, then tries to scroll element into view,
+unless it is completely visible.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:36.143438" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:36.143438" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="play">
+<arg>${path}</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:36.144444" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:36.144444" elapsed="0.000000"/>
+</kw>
+<arg>${pathtask}</arg>
+<status status="FAIL" start="2025-09-01T00:08:31.061742" elapsed="5.082702">Error: Could not find active page</status>
+</kw>
+<kw name="Wait Scroll and Click" owner="keyword">
+<arg>${home_section}[addsubtask]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:36.144444" elapsed="0.001015"/>
+</kw>
+<kw name="Wait Scroll and Input" owner="keyword">
+<arg>${home_section}[namesubtask]</arg>
+<arg>${data}[${Keys_No}][SubTaskName]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:36.145459" elapsed="0.000000"/>
+</kw>
+<kw name="Wait and Click" owner="keyword">
+<arg>${home_section}[create]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:36.145459" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${pathtask}</var>
+<arg>//*[text()="${data}[${Keys_No}][SubTaskName]"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:36.145459" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Scroll and Click" owner="keyword">
+<arg>${pathtask}</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:36.146445" elapsed="0.000000"/>
+</kw>
+<kw name="Click And Type" owner="play">
+<arg>${home_section}[Assignee]</arg>
+<arg>${data}[${Keys_No}][Assignee]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:36.146445" elapsed="0.000000"/>
+</kw>
+<kw name="Click And Type Date" owner="play">
+<arg>(//span[@class="_1reo15vq _18m915vq _syaz131l _1bto1l2s _p12f1osq"])[3]</arg>
+<arg>${data}[${Keys_No}][StartDate]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:36.146445" elapsed="0.000000"/>
+</kw>
+<kw name="Write Status To Excel" owner="keyword">
+<arg>${data}[${Keys_No}][SubTaskName]</arg>
+<arg>Complete</arg>
+<arg>${index}</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:36.147861" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-09-01T00:08:31.060743" elapsed="5.087118">Error: Could not find active page</status>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Global Search Fail CA : ${Keys_No}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-01T00:08:36.147861" elapsed="0.001357"/>
+</kw>
+<kw name="Write Status To Excel" owner="keyword">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-01T00:08:36.150226" level="INFO">${index} = 11</msg>
+<var>${index}</var>
+<arg>${index}+2</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-01T00:08:36.150226" elapsed="0.000000"/>
+</kw>
+<kw name="Write To Excel" owner="handledata">
+<arg>${excelname}</arg>
+<arg>${statussheet}</arg>
+<arg>A${index}</arg>
+<arg>${col1}</arg>
+<status status="PASS" start="2025-09-01T00:08:36.150226" elapsed="0.107532"/>
+</kw>
+<kw name="Write To Excel" owner="handledata">
+<arg>${excelname}</arg>
+<arg>${statussheet}</arg>
+<arg>B${index}</arg>
+<arg>${col2}</arg>
+<status status="PASS" start="2025-09-01T00:08:36.257758" elapsed="0.090539"/>
+</kw>
+<arg>${data}[${Keys_No}][SubTaskName]</arg>
+<arg>Fail</arg>
+<arg>${index}</arg>
+<status status="PASS" start="2025-09-01T00:08:36.149218" elapsed="0.199079"/>
+</kw>
+<kw name="Close Context" owner="Browser">
+<msg time="2025-09-01T00:08:36.350297" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2025-09-01T00:08:36.352308" level="INFO">Returned active browser id. CURRENT</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2025-09-01T00:08:36.348297" elapsed="0.004011"/>
+</kw>
+<status status="PASS" start="2025-09-01T00:08:36.147861" elapsed="0.204447"/>
+</branch>
+<status status="PASS" start="2025-09-01T00:08:31.060743" elapsed="5.291565"/>
+</try>
+<var name="${index}">9</var>
+<var name="${Keys_No}">TEST14</var>
+<status status="PASS" start="2025-09-01T00:08:31.060743" elapsed="5.291565"/>
+</iter>
+<iter>
+<try>
+<branch type="TRY">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-01T00:08:36.353301" level="INFO">${taskname} = DM-20</msg>
+<var>${taskname}</var>
+<arg>${data}[${Keys_No}][TaskName]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-01T00:08:36.353301" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-01T00:08:36.353301" level="INFO">${pathtask} = //*[text()="DM-20"]</msg>
+<var>${pathtask}</var>
+<arg>//*[text()="${taskname}"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-01T00:08:36.353301" elapsed="0.001002"/>
+</kw>
+<kw name="Wait Scroll and Click" owner="keyword">
+<kw name="Wait Until Element Is Visible" owner="play">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-09-01T00:08:41.346391" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2025-09-01T00:08:41.347390" level="INFO">See also file:///C:/kmutt/me/gonnaknow/project/jira/Jira-Data/playwright-log.txt for additional details.</msg>
+<msg time="2025-09-01T00:08:41.347390" level="FAIL">Error: Could not find active page</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="FAIL" start="2025-09-01T00:08:36.355302" elapsed="4.993087">Error: Could not find active page</status>
+</kw>
+<arg>${path}</arg>
+<arg>${time}</arg>
+<status status="FAIL" start="2025-09-01T00:08:36.354303" elapsed="4.994086">Error: Could not find active page</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:41.348389" elapsed="0.000000"/>
+</kw>
+<kw name="Scroll To Element" owner="Browser">
+<arg>${path}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>This method waits for actionability checks, then tries to scroll element into view,
+unless it is completely visible.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:41.348389" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:41.349389" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="play">
+<arg>${path}</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:41.349389" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>${time2}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:41.349389" elapsed="0.000000"/>
+</kw>
+<arg>${pathtask}</arg>
+<status status="FAIL" start="2025-09-01T00:08:36.354303" elapsed="4.995086">Error: Could not find active page</status>
+</kw>
+<kw name="Wait Scroll and Click" owner="keyword">
+<arg>${home_section}[addsubtask]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:41.349389" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Scroll and Input" owner="keyword">
+<arg>${home_section}[namesubtask]</arg>
+<arg>${data}[${Keys_No}][SubTaskName]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:41.350390" elapsed="0.000000"/>
+</kw>
+<kw name="Wait and Click" owner="keyword">
+<arg>${home_section}[create]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:41.350390" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${pathtask}</var>
+<arg>//*[text()="${data}[${Keys_No}][SubTaskName]"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-09-01T00:08:41.350390" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Scroll and Click" owner="keyword">
+<arg>${pathtask}</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:41.350390" elapsed="0.000000"/>
+</kw>
+<kw name="Click And Type" owner="play">
+<arg>${home_section}[Assignee]</arg>
+<arg>${data}[${Keys_No}][Assignee]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:41.351391" elapsed="0.000000"/>
+</kw>
+<kw name="Click And Type Date" owner="play">
+<arg>(//span[@class="_1reo15vq _18m915vq _syaz131l _1bto1l2s _p12f1osq"])[3]</arg>
+<arg>${data}[${Keys_No}][StartDate]</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:41.351391" elapsed="0.000000"/>
+</kw>
+<kw name="Write Status To Excel" owner="keyword">
+<arg>${data}[${Keys_No}][SubTaskName]</arg>
+<arg>Complete</arg>
+<arg>${index}</arg>
+<status status="NOT RUN" start="2025-09-01T00:08:41.351391" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-09-01T00:08:36.352308" elapsed="5.000081">Error: Could not find active page</status>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Global Search Fail CA : ${Keys_No}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-01T00:08:41.352389" elapsed="0.000000"/>
+</kw>
+<kw name="Write Status To Excel" owner="keyword">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-01T00:08:41.354389" level="INFO">${index} = 12</msg>
+<var>${index}</var>
+<arg>${index}+2</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-01T00:08:41.353392" elapsed="0.000997"/>
+</kw>
+<kw name="Write To Excel" owner="handledata">
+<arg>${excelname}</arg>
+<arg>${statussheet}</arg>
+<arg>A${index}</arg>
+<arg>${col1}</arg>
+<status status="PASS" start="2025-09-01T00:08:41.354389" elapsed="0.099907"/>
+</kw>
+<kw name="Write To Excel" owner="handledata">
+<arg>${excelname}</arg>
+<arg>${statussheet}</arg>
+<arg>B${index}</arg>
+<arg>${col2}</arg>
+<status status="PASS" start="2025-09-01T00:08:41.455296" elapsed="0.094010"/>
+</kw>
+<arg>${data}[${Keys_No}][SubTaskName]</arg>
+<arg>Fail</arg>
+<arg>${index}</arg>
+<status status="PASS" start="2025-09-01T00:08:41.353392" elapsed="0.195914"/>
+</kw>
+<kw name="Close Context" owner="Browser">
+<msg time="2025-09-01T00:08:41.553304" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2025-09-01T00:08:41.554304" level="INFO">Returned active browser id. CURRENT</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2025-09-01T00:08:41.550306" elapsed="0.003998"/>
+</kw>
+<status status="PASS" start="2025-09-01T00:08:41.352389" elapsed="0.201915"/>
+</branch>
+<status status="PASS" start="2025-09-01T00:08:36.352308" elapsed="5.202994"/>
+</try>
+<var name="${index}">10</var>
+<var name="${Keys_No}">TEST15</var>
+<status status="PASS" start="2025-09-01T00:08:36.352308" elapsed="5.202994"/>
+</iter>
+<var>${index}</var>
+<var>${Keys_No}</var>
+<value>@{Keys_Nos}</value>
+<status status="PASS" start="2025-09-01T00:07:33.587059" elapsed="67.968243"/>
 </for>
-<status status="PASS" starttime="20250829 19:32:00.436" endtime="20250829 19:32:52.929"/>
+<kw name="Close Context" owner="Browser">
+<msg time="2025-09-01T00:08:41.557305" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2025-09-01T00:08:41.558303" level="INFO">Returned active browser id. CURRENT</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2025-09-01T00:08:41.555302" elapsed="0.003001"/>
+</kw>
+<status status="PASS" start="2025-09-01T00:07:33.482109" elapsed="68.077195"/>
 </test>
-<status status="PASS" starttime="20250829 19:31:59.217" endtime="20250829 19:32:52.930"/>
+<status status="PASS" start="2025-09-01T00:07:26.352771" elapsed="75.210558"/>
 </suite>
 <statistics>
 <total>
@@ -534,7 +2534,7 @@ Stacktrace:
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="AddTask">AddTask</stat>
+<stat name="AddTask" id="s1" pass="1" fail="0" skip="0">AddTask</stat>
 </suite>
 </statistics>
 <errors>
